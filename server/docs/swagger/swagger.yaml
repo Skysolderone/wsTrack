@@ -1,0 +1,3408 @@
+basePath: /api/v1
+definitions:
+  dto.AddPlanDayRequest:
+    properties:
+      name:
+        maxLength: 50
+        minLength: 1
+        type: string
+    required:
+    - name
+    type: object
+  dto.AddPlanExerciseRequest:
+    properties:
+      exercise_id:
+        type: string
+      notes:
+        maxLength: 500
+        type: string
+      rest_seconds:
+        maximum: 600
+        minimum: 0
+        type: integer
+      superset_group:
+        type: integer
+      target_reps:
+        maxLength: 20
+        type: string
+      target_sets:
+        maximum: 20
+        minimum: 1
+        type: integer
+      target_weight:
+        minimum: 0
+        type: number
+    required:
+    - exercise_id
+    - target_sets
+    type: object
+  dto.AuthResponse:
+    properties:
+      access_token:
+        type: string
+      expires_in:
+        type: integer
+      refresh_token:
+        type: string
+      user:
+        $ref: '#/definitions/dto.UserInfo'
+    type: object
+  dto.ChallengeResponse:
+    properties:
+      created_at:
+        type: string
+      current_value:
+        type: number
+      end_date:
+        type: string
+      id:
+        type: string
+      is_completed:
+        type: boolean
+      start_date:
+        type: string
+      target_value:
+        type: number
+      type:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  dto.ChangePasswordRequest:
+    properties:
+      new_password:
+        maxLength: 64
+        minLength: 8
+        type: string
+      old_password:
+        type: string
+    required:
+    - new_password
+    - old_password
+    type: object
+  dto.ClientCoachResponse:
+    properties:
+      coach_email:
+        type: string
+      coach_id:
+        type: string
+      coach_name:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      notes:
+        type: string
+      status:
+        type: string
+    type: object
+  dto.CoachClientDetailResponse:
+    properties:
+      client:
+        $ref: '#/definitions/dto.CoachClientSummaryResponse'
+      dashboard:
+        $ref: '#/definitions/dto.DashboardResponse'
+    type: object
+  dto.CoachClientSummaryResponse:
+    properties:
+      client_id:
+        type: string
+      email:
+        type: string
+      has_trained_this_week:
+        type: boolean
+      id:
+        type: string
+      last_workout_at:
+        type: string
+      nickname:
+        type: string
+      notes:
+        type: string
+      status:
+        type: string
+      total_workouts:
+        type: integer
+      weekly_volume:
+        type: number
+    type: object
+  dto.CoachDashboardClientItem:
+    properties:
+      activity_bucket:
+        type: string
+      client_id:
+        type: string
+      email:
+        type: string
+      has_trained_this_week:
+        type: boolean
+      last_workout_at:
+        type: string
+      nickname:
+        type: string
+      weekly_volume_trend:
+        items:
+          $ref: '#/definitions/dto.VolumeDataPoint'
+        type: array
+    type: object
+  dto.CoachDashboardResponse:
+    properties:
+      active_3_days:
+        type: integer
+      active_7_days:
+        type: integer
+      clients:
+        items:
+          $ref: '#/definitions/dto.CoachDashboardClientItem'
+        type: array
+      inactive_7_days:
+        type: integer
+      total_clients:
+        type: integer
+      trained_this_week:
+        type: integer
+    type: object
+  dto.CoachInvitationResponse:
+    properties:
+      client_email:
+        type: string
+      coach_email:
+        type: string
+      coach_id:
+        type: string
+      coach_name:
+        type: string
+      created_at:
+        type: string
+      expires_at:
+        type: string
+      id:
+        type: string
+      status:
+        type: string
+    type: object
+  dto.CreateChallengeRequest:
+    properties:
+      end_date:
+        type: string
+      start_date:
+        type: string
+      target_value:
+        type: number
+      type:
+        enum:
+        - volume
+        - frequency
+        - cardio_duration
+        type: string
+    required:
+    - end_date
+    - start_date
+    - target_value
+    - type
+    type: object
+  dto.CreateExerciseRequest:
+    properties:
+      category:
+        enum:
+        - strength
+        - cardio
+        - bodyweight
+        - stretch
+        type: string
+      equipment:
+        enum:
+        - barbell
+        - dumbbell
+        - machine
+        - cable
+        - bodyweight
+        - band
+        - kettlebell
+        - ez_bar
+        - smith_machine
+        - other
+        type: string
+      name:
+        maxLength: 100
+        minLength: 1
+        type: string
+      name_en:
+        maxLength: 100
+        type: string
+      notes:
+        maxLength: 500
+        type: string
+      primary_muscles:
+        items:
+          type: string
+        minItems: 1
+        type: array
+      secondary_muscles:
+        items:
+          type: string
+        type: array
+      tracking_type:
+        enum:
+        - weight_reps
+        - time
+        - distance
+        - reps_only
+        type: string
+    required:
+    - category
+    - equipment
+    - name
+    - primary_muscles
+    - tracking_type
+    type: object
+  dto.CreatePlanRequest:
+    properties:
+      description:
+        maxLength: 500
+        type: string
+      goal:
+        enum:
+        - hypertrophy
+        - strength
+        - endurance
+        - general
+        type: string
+      name:
+        maxLength: 100
+        minLength: 1
+        type: string
+    required:
+    - name
+    type: object
+  dto.DashboardResponse:
+    properties:
+      current_streak:
+        type: integer
+      last_week_volume:
+        type: number
+      muscle_distribution:
+        items:
+          $ref: '#/definitions/dto.MuscleVolumeData'
+        type: array
+      recent_prs:
+        items:
+          $ref: '#/definitions/dto.PRRecord'
+        type: array
+      volume_change_percent:
+        type: number
+      weekly_volume:
+        type: number
+      weekly_workouts:
+        type: integer
+    type: object
+  dto.ExerciseResponse:
+    properties:
+      category:
+        type: string
+      created_at:
+        type: string
+      equipment:
+        type: string
+      id:
+        type: string
+      is_custom:
+        type: boolean
+      name:
+        type: string
+      name_en:
+        type: string
+      notes:
+        type: string
+      primary_muscles:
+        items:
+          type: string
+        type: array
+      secondary_muscles:
+        items:
+          type: string
+        type: array
+      tracking_type:
+        type: string
+    type: object
+  dto.ExerciseStatsResponse:
+    properties:
+      estimated_1rm:
+        type: number
+      exercise_id:
+        type: string
+      exercise_name:
+        type: string
+      max_weight_history:
+        items:
+          $ref: '#/definitions/dto.VolumeDataPoint'
+        type: array
+      personal_records:
+        items:
+          $ref: '#/definitions/dto.PRRecord'
+        type: array
+      total_sessions:
+        type: integer
+      volume_history:
+        items:
+          $ref: '#/definitions/dto.VolumeDataPoint'
+        type: array
+    type: object
+  dto.FrequencyStats:
+    properties:
+      by_day_of_week:
+        additionalProperties:
+          type: integer
+        type: object
+      by_time_of_day:
+        additionalProperties:
+          type: integer
+        type: object
+      current_streak:
+        type: integer
+      longest_streak:
+        type: integer
+      weekly_avg:
+        type: number
+    type: object
+  dto.ImportTemplateRequest:
+    properties:
+      template_json:
+        additionalProperties: true
+        type: object
+    required:
+    - template_json
+    type: object
+  dto.InviteClientRequest:
+    properties:
+      client_email:
+        type: string
+    required:
+    - client_email
+    type: object
+  dto.LoginRequest:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  dto.MuscleVolumeData:
+    properties:
+      muscle:
+        type: string
+      sets:
+        type: integer
+      volume:
+        type: number
+    type: object
+  dto.PRRecord:
+    properties:
+      achieved_at:
+        type: string
+      exercise_name:
+        type: string
+      id:
+        type: string
+      pr_type:
+        type: string
+      unit:
+        type: string
+      value:
+        type: number
+    type: object
+  dto.PlanDayResponse:
+    properties:
+      exercises:
+        items:
+          $ref: '#/definitions/dto.PlanExerciseResponse'
+        type: array
+      id:
+        type: string
+      name:
+        type: string
+      sort_order:
+        type: integer
+    type: object
+  dto.PlanDetailResponse:
+    properties:
+      created_at:
+        type: string
+      days:
+        items:
+          $ref: '#/definitions/dto.PlanDayResponse'
+        type: array
+      description:
+        type: string
+      goal:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  dto.PlanExerciseResponse:
+    properties:
+      exercise:
+        $ref: '#/definitions/dto.ExerciseResponse'
+      id:
+        type: string
+      notes:
+        type: string
+      rest_seconds:
+        type: integer
+      sort_order:
+        type: integer
+      superset_group:
+        type: integer
+      target_reps:
+        type: string
+      target_sets:
+        type: integer
+      target_weight:
+        type: number
+    type: object
+  dto.PushPlanRequest:
+    properties:
+      activate:
+        type: boolean
+      plan_id:
+        type: string
+    required:
+    - plan_id
+    type: object
+  dto.RefreshRequest:
+    properties:
+      refresh_token:
+        type: string
+    required:
+    - refresh_token
+    type: object
+  dto.RegisterRequest:
+    properties:
+      email:
+        type: string
+      nickname:
+        maxLength: 50
+        minLength: 2
+        type: string
+      password:
+        maxLength: 64
+        minLength: 8
+        type: string
+    required:
+    - email
+    - nickname
+    - password
+    type: object
+  dto.ReorderRequest:
+    properties:
+      ordered_ids:
+        items:
+          type: string
+        minItems: 1
+        type: array
+    required:
+    - ordered_ids
+    type: object
+  dto.SaveAsTemplateRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+      plan_id:
+        type: string
+    required:
+    - name
+    - plan_id
+    type: object
+  dto.SyncWorkoutRequest:
+    properties:
+      workouts:
+        items:
+          $ref: '#/definitions/dto.WorkoutFullData'
+        maxItems: 50
+        minItems: 1
+        type: array
+    required:
+    - workouts
+    type: object
+  dto.SyncWorkoutResponse:
+    properties:
+      synced_ids:
+        items:
+          $ref: '#/definitions/dto.SyncedWorkoutID'
+        type: array
+    type: object
+  dto.SyncedWorkoutID:
+    properties:
+      client_id:
+        type: string
+      server_id:
+        type: string
+    type: object
+  dto.TemplateResponse:
+    properties:
+      created_at:
+        type: string
+      days:
+        items:
+          $ref: '#/definitions/dto.PlanDayResponse'
+        type: array
+      description:
+        type: string
+      goal:
+        type: string
+      id:
+        type: string
+      is_built_in:
+        type: boolean
+      name:
+        type: string
+    type: object
+  dto.UpdateChallengeRequest:
+    properties:
+      end_date:
+        type: string
+      start_date:
+        type: string
+      target_value:
+        type: number
+      type:
+        enum:
+        - volume
+        - frequency
+        - cardio_duration
+        type: string
+    type: object
+  dto.UpdateExerciseRequest:
+    properties:
+      category:
+        enum:
+        - strength
+        - cardio
+        - bodyweight
+        - stretch
+        type: string
+      equipment:
+        type: string
+      name:
+        maxLength: 100
+        minLength: 1
+        type: string
+      name_en:
+        maxLength: 100
+        type: string
+      notes:
+        maxLength: 500
+        type: string
+      primary_muscles:
+        items:
+          type: string
+        minItems: 1
+        type: array
+      secondary_muscles:
+        items:
+          type: string
+        type: array
+      tracking_type:
+        type: string
+    type: object
+  dto.UpdatePlanRequest:
+    properties:
+      description:
+        maxLength: 500
+        type: string
+      goal:
+        enum:
+        - hypertrophy
+        - strength
+        - endurance
+        - general
+        type: string
+      is_active:
+        type: boolean
+      name:
+        maxLength: 100
+        minLength: 1
+        type: string
+    type: object
+  dto.UpdateProfileRequest:
+    properties:
+      language:
+        enum:
+        - zh
+        - en
+        type: string
+      nickname:
+        maxLength: 50
+        minLength: 2
+        type: string
+      weight_unit:
+        enum:
+        - kg
+        - lbs
+        type: string
+    type: object
+  dto.UpdateWorkoutRequest:
+    properties:
+      notes:
+        maxLength: 2000
+        type: string
+      rating:
+        maximum: 5
+        minimum: 1
+        type: integer
+    type: object
+  dto.UserInfo:
+    properties:
+      email:
+        type: string
+      id:
+        type: string
+      language:
+        type: string
+      nickname:
+        type: string
+      role:
+        type: string
+      weight_unit:
+        type: string
+    type: object
+  dto.VolumeDataPoint:
+    properties:
+      date:
+        type: string
+      volume:
+        type: number
+    type: object
+  dto.WorkoutCommentRequest:
+    properties:
+      comment:
+        maxLength: 2000
+        minLength: 1
+        type: string
+    required:
+    - comment
+    type: object
+  dto.WorkoutCommentResponse:
+    properties:
+      coach_id:
+        type: string
+      coach_name:
+        type: string
+      comment:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      workout_id:
+        type: string
+      workout_started_at:
+        type: string
+    type: object
+  dto.WorkoutDetailResponse:
+    properties:
+      duration_seconds:
+        type: integer
+      exercises:
+        items:
+          $ref: '#/definitions/dto.WorkoutExerciseResponse'
+        type: array
+      finished_at:
+        type: string
+      id:
+        type: string
+      notes:
+        type: string
+      plan_day_name:
+        type: string
+      rating:
+        type: integer
+      started_at:
+        type: string
+      total_sets:
+        type: integer
+      total_volume:
+        type: number
+    type: object
+  dto.WorkoutExerciseData:
+    properties:
+      client_id:
+        type: string
+      exercise_id:
+        type: string
+      notes:
+        type: string
+      sets:
+        items:
+          $ref: '#/definitions/dto.WorkoutSetData'
+        minItems: 1
+        type: array
+      sort_order:
+        type: integer
+      volume:
+        type: number
+    required:
+    - client_id
+    - exercise_id
+    - sets
+    type: object
+  dto.WorkoutExerciseResponse:
+    properties:
+      exercise:
+        $ref: '#/definitions/dto.ExerciseResponse'
+      id:
+        type: string
+      notes:
+        type: string
+      sets:
+        items:
+          $ref: '#/definitions/dto.WorkoutSetResponse'
+        type: array
+      sort_order:
+        type: integer
+      volume:
+        type: number
+    type: object
+  dto.WorkoutFullData:
+    properties:
+      client_id:
+        type: string
+      duration_seconds:
+        minimum: 0
+        type: integer
+      exercises:
+        items:
+          $ref: '#/definitions/dto.WorkoutExerciseData'
+        minItems: 1
+        type: array
+      finished_at:
+        type: string
+      notes:
+        maxLength: 2000
+        type: string
+      plan_day_id:
+        type: string
+      rating:
+        maximum: 5
+        minimum: 1
+        type: integer
+      started_at:
+        type: string
+      total_sets:
+        type: integer
+      total_volume:
+        type: number
+    required:
+    - client_id
+    - duration_seconds
+    - exercises
+    - started_at
+    type: object
+  dto.WorkoutSetData:
+    properties:
+      client_id:
+        type: string
+      completed_at:
+        type: string
+      distance:
+        type: number
+      duration_seconds:
+        type: integer
+      is_completed:
+        type: boolean
+      is_pr:
+        type: boolean
+      is_warmup:
+        type: boolean
+      reps:
+        type: integer
+      rest_seconds:
+        type: integer
+      rpe:
+        maximum: 10
+        minimum: 1
+        type: number
+      set_number:
+        minimum: 1
+        type: integer
+      unit:
+        enum:
+        - kg
+        - lbs
+        type: string
+      weight:
+        type: number
+    required:
+    - client_id
+    - set_number
+    - unit
+    type: object
+  dto.WorkoutSetResponse:
+    properties:
+      completed_at:
+        type: string
+      distance:
+        type: number
+      duration_seconds:
+        type: integer
+      id:
+        type: string
+      is_completed:
+        type: boolean
+      is_pr:
+        type: boolean
+      is_warmup:
+        type: boolean
+      reps:
+        type: integer
+      rest_seconds:
+        type: integer
+      rpe:
+        type: number
+      set_number:
+        type: integer
+      unit:
+        type: string
+      weight:
+        type: number
+    type: object
+  response.Response:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Backend service for the strength training record app.
+  title: Strength Tracker API
+  version: "1.0"
+paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Login request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.AuthResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Login
+      tags:
+      - auth
+  /auth/password:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Change password request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ChangePasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Change current user password
+      tags:
+      - auth
+  /auth/profile:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.UserInfo'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get current user profile
+      tags:
+      - auth
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Update profile request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateProfileRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.UserInfo'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Update current user profile
+      tags:
+      - auth
+  /auth/refresh:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Refresh token request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RefreshRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.AuthResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Refresh token pair
+      tags:
+      - auth
+  /auth/register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Register request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RegisterRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.AuthResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Register a new user
+      tags:
+      - auth
+  /challenges:
+    get:
+      parameters:
+      - description: active / completed
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List challenges
+      tags:
+      - challenges
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Create challenge request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateChallengeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.ChallengeResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Create challenge
+      tags:
+      - challenges
+  /challenges/{id}:
+    delete:
+      parameters:
+      - description: Challenge ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Delete challenge
+      tags:
+      - challenges
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Challenge ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update challenge request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateChallengeRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.ChallengeResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Update challenge
+      tags:
+      - challenges
+  /client/coaches:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List my coaches
+      tags:
+      - client
+  /client/comments:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List coach comments
+      tags:
+      - client
+  /client/invitations:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List received coach invitations
+      tags:
+      - client
+  /client/invitations/{id}/accept:
+    post:
+      parameters:
+      - description: Invitation ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.ClientCoachResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Accept coach invitation
+      tags:
+      - client
+  /client/invitations/{id}/reject:
+    post:
+      parameters:
+      - description: Invitation ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Reject coach invitation
+      tags:
+      - client
+  /coach/clients:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List coach clients
+      tags:
+      - coach
+  /coach/clients/{clientId}:
+    get:
+      parameters:
+      - description: Client ID
+        in: path
+        name: clientId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.CoachClientDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get coach client detail
+      tags:
+      - coach
+  /coach/clients/{clientId}/plans:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Client ID
+        in: path
+        name: clientId
+        required: true
+        type: string
+      - description: Push plan request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.PushPlanRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Push plan to client
+      tags:
+      - coach
+  /coach/clients/{clientId}/workouts:
+    get:
+      parameters:
+      - description: Client ID
+        in: path
+        name: clientId
+        required: true
+        type: string
+      - description: Start datetime
+        in: query
+        name: date_from
+        type: string
+      - description: End datetime
+        in: query
+        name: date_to
+        type: string
+      - description: Exercise ID
+        in: query
+        name: exercise_id
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Page size
+        in: query
+        name: page_size
+        type: integer
+      - description: Sort field
+        in: query
+        name: sort_by
+        type: string
+      - description: Sort direction
+        in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List coach client workouts
+      tags:
+      - coach
+  /coach/dashboard:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.CoachDashboardResponse'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get coach dashboard
+      tags:
+      - coach
+  /coach/invite:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Invite client request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.InviteClientRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.CoachInvitationResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Invite a client by email
+      tags:
+      - coach
+  /coach/workouts/{workoutId}/comment:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Workout ID
+        in: path
+        name: workoutId
+        required: true
+        type: string
+      - description: Workout comment request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.WorkoutCommentRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.WorkoutCommentResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Add coach comment to workout
+      tags:
+      - coach
+  /exercises:
+    get:
+      parameters:
+      - description: Exercise category
+        in: query
+        name: category
+        type: string
+      - description: Primary muscle
+        in: query
+        name: muscle
+        type: string
+      - description: Equipment
+        in: query
+        name: equipment
+        type: string
+      - description: Search by name or name_en
+        in: query
+        name: search
+        type: string
+      - description: Only custom or preset exercises
+        in: query
+        name: is_custom
+        type: boolean
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Page size
+        in: query
+        name: page_size
+        type: integer
+      - description: Sort field
+        in: query
+        name: sort_by
+        type: string
+      - description: Sort direction
+        in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List exercises
+      tags:
+      - exercises
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Create exercise request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateExerciseRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.ExerciseResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Create custom exercise
+      tags:
+      - exercises
+  /exercises/{id}:
+    delete:
+      parameters:
+      - description: Exercise ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Archive custom exercise
+      tags:
+      - exercises
+    get:
+      parameters:
+      - description: Exercise ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.ExerciseResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get exercise detail
+      tags:
+      - exercises
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Exercise ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update exercise request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateExerciseRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.ExerciseResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Update custom exercise
+      tags:
+      - exercises
+  /plans:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List plans
+      tags:
+      - plans
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Create plan request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreatePlanRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Create plan
+      tags:
+      - plans
+  /plans/{id}:
+    delete:
+      parameters:
+      - description: Plan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Delete plan
+      tags:
+      - plans
+    get:
+      parameters:
+      - description: Plan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get plan detail
+      tags:
+      - plans
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Plan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update plan request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdatePlanRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Update plan
+      tags:
+      - plans
+  /plans/{id}/activate:
+    post:
+      parameters:
+      - description: Plan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Activate plan
+      tags:
+      - plans
+  /plans/{id}/days:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Plan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Add plan day request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AddPlanDayRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanDayResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Add plan day
+      tags:
+      - plans
+  /plans/{id}/duplicate:
+    post:
+      parameters:
+      - description: Plan ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Duplicate plan
+      tags:
+      - plans
+  /plans/days/{dayId}:
+    delete:
+      parameters:
+      - description: Plan Day ID
+        in: path
+        name: dayId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Delete plan day
+      tags:
+      - plans
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Plan Day ID
+        in: path
+        name: dayId
+        required: true
+        type: string
+      - description: Update plan day request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AddPlanDayRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanDayResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Update plan day
+      tags:
+      - plans
+  /plans/days/{dayId}/exercises:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Plan Day ID
+        in: path
+        name: dayId
+        required: true
+        type: string
+      - description: Add plan exercise request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AddPlanExerciseRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanExerciseResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Add exercise to plan day
+      tags:
+      - plans
+  /plans/days/{dayId}/exercises/reorder:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Plan Day ID
+        in: path
+        name: dayId
+        required: true
+        type: string
+      - description: Reorder request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ReorderRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Reorder plan exercises within a day
+      tags:
+      - plans
+  /plans/days/{dayId}/reorder:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Any Plan Day ID in the target plan
+        in: path
+        name: dayId
+        required: true
+        type: string
+      - description: Reorder request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ReorderRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Reorder plan days
+      tags:
+      - plans
+  /plans/exercises/{exerciseId}:
+    delete:
+      parameters:
+      - description: Plan Exercise ID
+        in: path
+        name: exerciseId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Delete plan exercise
+      tags:
+      - plans
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Plan Exercise ID
+        in: path
+        name: exerciseId
+        required: true
+        type: string
+      - description: Update plan exercise request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AddPlanExerciseRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanExerciseResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Update plan exercise
+      tags:
+      - plans
+  /prs:
+    get:
+      parameters:
+      - description: Filter by exercise ID
+        in: query
+        name: exercise_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List personal records
+      tags:
+      - prs
+  /prs/exercise/{exerciseId}:
+    get:
+      parameters:
+      - description: Exercise ID
+        in: path
+        name: exerciseId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List personal records by exercise
+      tags:
+      - prs
+  /stats/dashboard:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.DashboardResponse'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get dashboard stats
+      tags:
+      - stats
+  /stats/exercise/{exerciseId}:
+    get:
+      parameters:
+      - description: Exercise ID
+        in: path
+        name: exerciseId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.ExerciseStatsResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get exercise analytics
+      tags:
+      - stats
+  /stats/frequency:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.FrequencyStats'
+              type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get workout frequency stats
+      tags:
+      - stats
+  /stats/muscles:
+    get:
+      parameters:
+      - description: RFC3339 datetime
+        in: query
+        name: date_from
+        required: true
+        type: string
+      - description: RFC3339 datetime
+        in: query
+        name: date_to
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get muscle distribution
+      tags:
+      - stats
+  /stats/prs:
+    get:
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get PR history
+      tags:
+      - stats
+  /stats/volume:
+    get:
+      parameters:
+      - description: daily / weekly / monthly
+        in: query
+        name: period
+        required: true
+        type: string
+      - description: RFC3339 datetime
+        in: query
+        name: date_from
+        required: true
+        type: string
+      - description: RFC3339 datetime
+        in: query
+        name: date_to
+        required: true
+        type: string
+      - description: Muscle group
+        in: query
+        name: muscle
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get volume history
+      tags:
+      - stats
+  /templates:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List templates
+      tags:
+      - templates
+  /templates/{id}:
+    delete:
+      parameters:
+      - description: Template ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Delete custom template
+      tags:
+      - templates
+    get:
+      parameters:
+      - description: Template ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.TemplateResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get template detail
+      tags:
+      - templates
+  /templates/{id}/apply:
+    post:
+      parameters:
+      - description: Template ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.PlanDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Apply template to create a new plan
+      tags:
+      - templates
+  /templates/{id}/export:
+    get:
+      parameters:
+      - description: Template ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Export template JSON
+      tags:
+      - templates
+  /templates/from-plan:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Save template request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.SaveAsTemplateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.TemplateResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Save a plan as template
+      tags:
+      - templates
+  /templates/import:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Import template request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.ImportTemplateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.TemplateResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Import template JSON
+      tags:
+      - templates
+  /workouts:
+    get:
+      parameters:
+      - description: Start datetime
+        in: query
+        name: date_from
+        type: string
+      - description: End datetime
+        in: query
+        name: date_to
+        type: string
+      - description: Exercise ID
+        in: query
+        name: exercise_id
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Page size
+        in: query
+        name: page_size
+        type: integer
+      - description: Sort field
+        in: query
+        name: sort_by
+        type: string
+      - description: Sort direction
+        in: query
+        name: sort_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: List workouts
+      tags:
+      - workouts
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Workout payload
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.WorkoutFullData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.WorkoutDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Create a workout
+      tags:
+      - workouts
+  /workouts/{id}:
+    delete:
+      parameters:
+      - description: Workout ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Delete workout
+      tags:
+      - workouts
+    get:
+      parameters:
+      - description: Workout ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.WorkoutDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Get workout detail
+      tags:
+      - workouts
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Workout ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update workout request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UpdateWorkoutRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.WorkoutDetailResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Update workout rating and notes
+      tags:
+      - workouts
+  /workouts/sync:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Sync workout request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.SyncWorkoutRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/dto.SyncWorkoutResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - BearerAuth: []
+      summary: Batch sync workouts
+      tags:
+      - workouts
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
