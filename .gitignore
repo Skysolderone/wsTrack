@@ -26,7 +26,24 @@ go.work.sum
 
 # env file
 .env
+.env.local
+.env.*.local
 
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Node / React Native
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.bundle/
+android/.gradle/
+android/app/build/
+android/build/
+ios/Pods/
+ios/build/
+*.xcuserstate
+*.xcworkspace
+DerivedData/
+dist/

@@ -1,0 +1,1952 @@
+[
+  {
+    "name": "杠铃卧推",
+    "name_en": "Barbell Bench Press",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "上斜杠铃卧推",
+    "name_en": "Incline Barbell Bench Press",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "triceps"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "下斜杠铃卧推",
+    "name_en": "Decline Barbell Bench Press",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "triceps"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃平板卧推",
+    "name_en": "Dumbbell Flat Bench Press",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃上斜卧推",
+    "name_en": "Dumbbell Incline Press",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "triceps"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃下斜卧推",
+    "name_en": "Dumbbell Decline Press",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "triceps"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "器械卧推",
+    "name_en": "Machine Chest Press",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "triceps"
+    ],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "史密斯上斜卧推",
+    "name_en": "Smith Machine Incline Press",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "triceps"
+    ],
+    "equipment": "smith_machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "拉索夹胸",
+    "name_en": "Cable Fly",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "高位拉索夹胸",
+    "name_en": "High Cable Fly",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "低位拉索夹胸",
+    "name_en": "Low Cable Fly",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "俯卧撑",
+    "name_en": "Push-Up",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "弹力带夹胸",
+    "name_en": "Band Chest Fly",
+    "category": "strength",
+    "primary_muscles": [
+      "chest"
+    ],
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "equipment": "band",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "传统硬拉",
+    "name_en": "Conventional Deadlift",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "glutes",
+      "hamstrings",
+      "full_body"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃俯身划船",
+    "name_en": "Barbell Bent-Over Row",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps",
+      "forearms"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "潘德雷划船",
+    "name_en": "Pendlay Row",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps",
+      "forearms"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "T杠划船",
+    "name_en": "T-Bar Row",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "other",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "单臂哑铃划船",
+    "name_en": "One-Arm Dumbbell Row",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "胸托划船",
+    "name_en": "Chest-Supported Row",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "坐姿划船",
+    "name_en": "Seated Cable Row",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "高位下拉",
+    "name_en": "Lat Pulldown",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "窄握高位下拉",
+    "name_en": "Close-Grip Lat Pulldown",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "反手高位下拉",
+    "name_en": "Underhand Lat Pulldown",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "引体向上",
+    "name_en": "Pull-Up",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps",
+      "forearms"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "反手引体向上",
+    "name_en": "Chin-Up",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps",
+      "forearms"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "器械高位划船",
+    "name_en": "Machine High Row",
+    "category": "strength",
+    "primary_muscles": [
+      "back"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃推举",
+    "name_en": "Barbell Overhead Press",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [
+      "triceps",
+      "chest"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "坐姿哑铃推举",
+    "name_en": "Seated Dumbbell Shoulder Press",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [
+      "triceps"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "阿诺德推举",
+    "name_en": "Arnold Press",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [
+      "triceps"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃侧平举",
+    "name_en": "Dumbbell Lateral Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "拉索侧平举",
+    "name_en": "Cable Lateral Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "器械侧平举",
+    "name_en": "Machine Lateral Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃前平举",
+    "name_en": "Dumbbell Front Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃前平举",
+    "name_en": "Barbell Front Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "反向飞鸟",
+    "name_en": "Reverse Dumbbell Fly",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [
+      "back"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "绳索面拉",
+    "name_en": "Face Pull",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [
+      "back"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "直立划船",
+    "name_en": "Upright Row",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [
+      "triceps"
+    ],
+    "equipment": "ez_bar",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "弹力带外旋",
+    "name_en": "Band External Rotation",
+    "category": "strength",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [],
+    "equipment": "band",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "倒立撑",
+    "name_en": "Pike Push-Up",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "shoulders"
+    ],
+    "secondary_muscles": [
+      "triceps"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "杠铃弯举",
+    "name_en": "Barbell Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [
+      "forearms"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "EZ杠弯举",
+    "name_en": "EZ Bar Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [
+      "forearms"
+    ],
+    "equipment": "ez_bar",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃交替弯举",
+    "name_en": "Alternating Dumbbell Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [
+      "forearms"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃锤式弯举",
+    "name_en": "Hammer Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [
+      "forearms"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "拉索弯举",
+    "name_en": "Cable Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [
+      "forearms"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "高位拉索弯举",
+    "name_en": "High Cable Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "牧师凳弯举",
+    "name_en": "Preacher Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "ez_bar",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "器械弯举",
+    "name_en": "Machine Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "集中弯举",
+    "name_en": "Concentration Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "上斜哑铃弯举",
+    "name_en": "Incline Dumbbell Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "反手引体静力保持",
+    "name_en": "Supinated Hang Hold",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [
+      "forearms"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "time"
+  },
+  {
+    "name": "弹力带弯举",
+    "name_en": "Band Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "band",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "蜘蛛弯举",
+    "name_en": "Spider Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "biceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "窄握卧推",
+    "name_en": "Close-Grip Bench Press",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [
+      "chest",
+      "shoulders"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "EZ杠仰卧臂屈伸",
+    "name_en": "EZ Bar Skull Crusher",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "ez_bar",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃仰卧臂屈伸",
+    "name_en": "Dumbbell Skull Crusher",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃过顶臂屈伸",
+    "name_en": "Dumbbell Overhead Triceps Extension",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "绳索下压",
+    "name_en": "Cable Triceps Pushdown",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "反手绳索下压",
+    "name_en": "Reverse-Grip Pushdown",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "单臂绳索下压",
+    "name_en": "Single-Arm Cable Pushdown",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "器械臂屈伸",
+    "name_en": "Machine Dip",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [
+      "chest"
+    ],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "双杠臂屈伸",
+    "name_en": "Parallel Bar Dip",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [
+      "chest",
+      "shoulders"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "凳上反屈伸",
+    "name_en": "Bench Dip",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "弹力带下压",
+    "name_en": "Band Pushdown",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "band",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "史密斯窄握卧推",
+    "name_en": "Smith Machine Close-Grip Press",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [
+      "chest"
+    ],
+    "equipment": "smith_machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "壶铃过顶臂屈伸",
+    "name_en": "Kettlebell Overhead Extension",
+    "category": "strength",
+    "primary_muscles": [
+      "triceps"
+    ],
+    "secondary_muscles": [],
+    "equipment": "kettlebell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃腕弯举",
+    "name_en": "Barbell Wrist Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃反向腕弯举",
+    "name_en": "Barbell Reverse Wrist Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃腕弯举",
+    "name_en": "Dumbbell Wrist Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃反向腕弯举",
+    "name_en": "Dumbbell Reverse Wrist Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃反向弯举",
+    "name_en": "Barbell Reverse Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "EZ杠反向弯举",
+    "name_en": "EZ Bar Reverse Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "ez_bar",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "锤式弯举",
+    "name_en": "Hammer Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [
+      "biceps"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "腕力器夹握",
+    "name_en": "Gripper Crush",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [],
+    "equipment": "other",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "杠铃片捏握",
+    "name_en": "Plate Pinch Hold",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [],
+    "equipment": "other",
+    "tracking_type": "time"
+  },
+  {
+    "name": "毛巾悬垂",
+    "name_en": "Towel Hang",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [
+      "back"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "time"
+  },
+  {
+    "name": "农夫行走握持",
+    "name_en": "Farmer Hold",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [
+      "full_body"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "time"
+  },
+  {
+    "name": "拉索腕弯举",
+    "name_en": "Cable Wrist Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "弹力带伸腕",
+    "name_en": "Band Wrist Extension",
+    "category": "strength",
+    "primary_muscles": [
+      "forearms"
+    ],
+    "secondary_muscles": [],
+    "equipment": "band",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "卷腹",
+    "name_en": "Crunch",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "仰卧举腿",
+    "name_en": "Leg Raise",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "悬垂举腿",
+    "name_en": "Hanging Leg Raise",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [
+      "forearms"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "反向卷腹",
+    "name_en": "Reverse Crunch",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "俄罗斯转体",
+    "name_en": "Russian Twist",
+    "category": "strength",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [
+      "full_body"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "拉索卷腹",
+    "name_en": "Cable Crunch",
+    "category": "strength",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "器械卷腹",
+    "name_en": "Machine Crunch",
+    "category": "strength",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "平板支撑",
+    "name_en": "Plank",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [
+      "full_body"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "time"
+  },
+  {
+    "name": "侧平板支撑",
+    "name_en": "Side Plank",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "time"
+  },
+  {
+    "name": "登山者",
+    "name_en": "Mountain Climber",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [
+      "full_body"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "time"
+  },
+  {
+    "name": "死虫",
+    "name_en": "Dead Bug",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "健腹轮",
+    "name_en": "Ab Wheel Rollout",
+    "category": "strength",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "equipment": "other",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "弹力带伐木",
+    "name_en": "Band Wood Chop",
+    "category": "strength",
+    "primary_muscles": [
+      "abs"
+    ],
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "equipment": "band",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃臀桥",
+    "name_en": "Barbell Hip Thrust",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "hamstrings"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃臀桥",
+    "name_en": "Dumbbell Hip Thrust",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "hamstrings"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "史密斯臀推",
+    "name_en": "Smith Machine Hip Thrust",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "hamstrings"
+    ],
+    "equipment": "smith_machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "保加利亚分腿蹲",
+    "name_en": "Bulgarian Split Squat",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "quads"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃臀腿硬拉",
+    "name_en": "Barbell Glute Bridge",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "hamstrings"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "拉索后踢腿",
+    "name_en": "Cable Kickback",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "器械臀推",
+    "name_en": "Machine Glute Drive",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "弹力带蚌式开合",
+    "name_en": "Band Clamshell",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [],
+    "equipment": "band",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "壶铃相扑硬拉",
+    "name_en": "Kettlebell Sumo Deadlift",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "hamstrings"
+    ],
+    "equipment": "kettlebell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "台阶踏步",
+    "name_en": "Step-Up",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "quads"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "单腿臀桥",
+    "name_en": "Single-Leg Glute Bridge",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "hamstrings"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "后撤箭步蹲",
+    "name_en": "Reverse Lunge",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "quads"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "壶铃摆动",
+    "name_en": "Kettlebell Swing",
+    "category": "strength",
+    "primary_muscles": [
+      "glutes"
+    ],
+    "secondary_muscles": [
+      "hamstrings",
+      "full_body"
+    ],
+    "equipment": "kettlebell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃深蹲",
+    "name_en": "Barbell Back Squat",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes",
+      "full_body"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "前蹲",
+    "name_en": "Front Squat",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes",
+      "full_body"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "高脚杯深蹲",
+    "name_en": "Goblet Squat",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哈克深蹲",
+    "name_en": "Hack Squat",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "腿举",
+    "name_en": "Leg Press",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "腿屈伸",
+    "name_en": "Leg Extension",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "史密斯深蹲",
+    "name_en": "Smith Machine Squat",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "smith_machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃箭步蹲",
+    "name_en": "Barbell Lunge",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃行走箭步蹲",
+    "name_en": "Walking Lunge",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "登台阶",
+    "name_en": "Weighted Step-Up",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "西西深蹲",
+    "name_en": "Sissy Squat",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "弹力带深蹲",
+    "name_en": "Band Squat",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "band",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "壶铃前蹲",
+    "name_en": "Kettlebell Front Squat",
+    "category": "strength",
+    "primary_muscles": [
+      "quads"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "kettlebell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "罗马尼亚硬拉",
+    "name_en": "Romanian Deadlift",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [
+      "glutes",
+      "back"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "直腿硬拉",
+    "name_en": "Stiff-Leg Deadlift",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃罗马尼亚硬拉",
+    "name_en": "Dumbbell Romanian Deadlift",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "腿弯举",
+    "name_en": "Lying Leg Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "坐姿腿弯举",
+    "name_en": "Seated Leg Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "北欧腿弯举",
+    "name_en": "Nordic Curl",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "古德摩宁",
+    "name_en": "Good Morning",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [
+      "glutes",
+      "back"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "拉索下拉穿裆",
+    "name_en": "Cable Pull-Through",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "cable",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "弹力带腿弯举",
+    "name_en": "Band Leg Curl",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [],
+    "equipment": "band",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "壶铃单腿硬拉",
+    "name_en": "Kettlebell Single-Leg Deadlift",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "kettlebell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "史密斯罗马尼亚硬拉",
+    "name_en": "Smith Romanian Deadlift",
+    "category": "strength",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "smith_machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "瑞士球腿弯举",
+    "name_en": "Swiss Ball Leg Curl",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [
+      "glutes"
+    ],
+    "equipment": "other",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "滑盘腿弯举",
+    "name_en": "Slider Leg Curl",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "hamstrings"
+    ],
+    "secondary_muscles": [],
+    "equipment": "other",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "站姿提踵",
+    "name_en": "Standing Calf Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "坐姿提踵",
+    "name_en": "Seated Calf Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "驴式提踵",
+    "name_en": "Donkey Calf Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "other",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "史密斯提踵",
+    "name_en": "Smith Machine Calf Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "smith_machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "杠铃提踵",
+    "name_en": "Barbell Calf Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃提踵",
+    "name_en": "Dumbbell Calf Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "单腿提踵",
+    "name_en": "Single-Leg Calf Raise",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "台阶提踵",
+    "name_en": "Step Calf Raise",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "腿举机提踵",
+    "name_en": "Leg Press Calf Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "machine",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "壶铃提踵",
+    "name_en": "Kettlebell Calf Raise",
+    "category": "strength",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "kettlebell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "弹力带跖屈",
+    "name_en": "Band Plantar Flexion",
+    "category": "strength",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "band",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "跳绳",
+    "name_en": "Jump Rope",
+    "category": "cardio",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [
+      "full_body"
+    ],
+    "equipment": "other",
+    "tracking_type": "time"
+  },
+  {
+    "name": "行进提踵",
+    "name_en": "Walking Calf Raise",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "calves"
+    ],
+    "secondary_muscles": [],
+    "equipment": "bodyweight",
+    "tracking_type": "distance"
+  },
+  {
+    "name": "抓举",
+    "name_en": "Snatch",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "back",
+      "glutes"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "挺举",
+    "name_en": "Clean and Jerk",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "quads",
+      "glutes"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "高翻",
+    "name_en": "Power Clean",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "back",
+      "glutes",
+      "quads"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "抓举高拉",
+    "name_en": "Snatch High Pull",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "back",
+      "shoulders"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "推蹲",
+    "name_en": "Thruster",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "quads"
+    ],
+    "equipment": "barbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "哑铃推蹲",
+    "name_en": "Dumbbell Thruster",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "quads"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "壶铃抓举",
+    "name_en": "Kettlebell Snatch",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "glutes"
+    ],
+    "equipment": "kettlebell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "壶铃挺举",
+    "name_en": "Kettlebell Clean and Press",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "glutes"
+    ],
+    "equipment": "kettlebell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "农夫行走",
+    "name_en": "Farmer Carry",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "forearms",
+      "abs"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "distance"
+  },
+  {
+    "name": "雪橇推",
+    "name_en": "Sled Push",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "quads",
+      "glutes"
+    ],
+    "equipment": "other",
+    "tracking_type": "distance"
+  },
+  {
+    "name": "波比跳",
+    "name_en": "Burpee",
+    "category": "bodyweight",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "chest",
+      "quads"
+    ],
+    "equipment": "bodyweight",
+    "tracking_type": "reps_only"
+  },
+  {
+    "name": "登阶推举",
+    "name_en": "Man Maker",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "chest",
+      "shoulders"
+    ],
+    "equipment": "dumbbell",
+    "tracking_type": "weight_reps"
+  },
+  {
+    "name": "土耳其起立",
+    "name_en": "Turkish Get-Up",
+    "category": "strength",
+    "primary_muscles": [
+      "full_body"
+    ],
+    "secondary_muscles": [
+      "shoulders",
+      "abs"
+    ],
+    "equipment": "kettlebell",
+    "tracking_type": "weight_reps"
+  }
+]

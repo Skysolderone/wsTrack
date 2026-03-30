@@ -1,0 +1,381 @@
+[
+  {
+    "name": "PPL 3天",
+    "description": "经典 Push Pull Legs 三分化，适合多数增肌周期。",
+    "goal": "hypertrophy",
+    "days": [
+      {
+        "name": "Push",
+        "exercises": [
+          { "exercise_name_en": "Barbell Bench Press", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Incline Barbell Bench Press", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "Barbell Overhead Press", "target_sets": 3, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Cable Lateral Raise", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Cable Triceps Pushdown", "target_sets": 3, "target_reps": "10-15", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Pull",
+        "exercises": [
+          { "exercise_name_en": "Pull-Up", "target_sets": 4, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Seated Cable Row", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Lat Pulldown", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 75 },
+          { "exercise_name_en": "Face Pull", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Barbell Curl", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Legs",
+        "exercises": [
+          { "exercise_name_en": "Barbell Back Squat", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 150 },
+          { "exercise_name_en": "Romanian Deadlift", "target_sets": 3, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Leg Press", "target_sets": 3, "target_reps": "10-15", "rest_seconds": 90 },
+          { "exercise_name_en": "Leg Extension", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Standing Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "PPL 6天",
+    "description": "高频 PPL 版本，适合训练恢复能力较好的中高级训练者。",
+    "goal": "hypertrophy",
+    "days": [
+      {
+        "name": "Push A",
+        "exercises": [
+          { "exercise_name_en": "Barbell Bench Press", "target_sets": 4, "target_reps": "4-6", "rest_seconds": 150 },
+          { "exercise_name_en": "Dumbbell Incline Press", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "Arnold Press", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 75 },
+          { "exercise_name_en": "Cable Lateral Raise", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Cable Triceps Pushdown", "target_sets": 3, "target_reps": "10-15", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Pull A",
+        "exercises": [
+          { "exercise_name_en": "Conventional Deadlift", "target_sets": 3, "target_reps": "3-5", "rest_seconds": 180 },
+          { "exercise_name_en": "Pull-Up", "target_sets": 4, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Seated Cable Row", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Face Pull", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Hammer Curl", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Legs A",
+        "exercises": [
+          { "exercise_name_en": "Barbell Back Squat", "target_sets": 4, "target_reps": "4-6", "rest_seconds": 150 },
+          { "exercise_name_en": "Walking Lunge", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Leg Extension", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Seated Leg Curl", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Standing Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      },
+      {
+        "name": "Push B",
+        "exercises": [
+          { "exercise_name_en": "Smith Machine Incline Press", "target_sets": 4, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Dumbbell Flat Bench Press", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Barbell Overhead Press", "target_sets": 3, "target_reps": "5-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Cable Fly", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Close-Grip Bench Press", "target_sets": 3, "target_reps": "6-10", "rest_seconds": 90 }
+        ]
+      },
+      {
+        "name": "Pull B",
+        "exercises": [
+          { "exercise_name_en": "Chin-Up", "target_sets": 4, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Pendlay Row", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Lat Pulldown", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 75 },
+          { "exercise_name_en": "T-Bar Row", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "EZ Bar Curl", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Legs B",
+        "exercises": [
+          { "exercise_name_en": "Front Squat", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 150 },
+          { "exercise_name_en": "Romanian Deadlift", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Leg Press", "target_sets": 3, "target_reps": "10-15", "rest_seconds": 90 },
+          { "exercise_name_en": "Lying Leg Curl", "target_sets": 3, "target_reps": "10-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Seated Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "上下肢 4天",
+    "description": "经典 Upper / Lower 四天模板，兼顾力量和容量。",
+    "goal": "general",
+    "days": [
+      {
+        "name": "Upper A",
+        "exercises": [
+          { "exercise_name_en": "Barbell Bench Press", "target_sets": 4, "target_reps": "4-6", "rest_seconds": 150 },
+          { "exercise_name_en": "Barbell Overhead Press", "target_sets": 3, "target_reps": "5-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Pull-Up", "target_sets": 4, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Seated Cable Row", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Barbell Curl", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 60 },
+          { "exercise_name_en": "Cable Triceps Pushdown", "target_sets": 3, "target_reps": "10-15", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Lower A",
+        "exercises": [
+          { "exercise_name_en": "Barbell Back Squat", "target_sets": 4, "target_reps": "4-6", "rest_seconds": 150 },
+          { "exercise_name_en": "Romanian Deadlift", "target_sets": 3, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Leg Press", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Leg Extension", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Standing Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      },
+      {
+        "name": "Upper B",
+        "exercises": [
+          { "exercise_name_en": "Incline Barbell Bench Press", "target_sets": 4, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Dumbbell Flat Bench Press", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "Lat Pulldown", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 75 },
+          { "exercise_name_en": "Face Pull", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Hammer Curl", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 60 },
+          { "exercise_name_en": "Close-Grip Bench Press", "target_sets": 3, "target_reps": "6-10", "rest_seconds": 90 }
+        ]
+      },
+      {
+        "name": "Lower B",
+        "exercises": [
+          { "exercise_name_en": "Front Squat", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 150 },
+          { "exercise_name_en": "Barbell Hip Thrust", "target_sets": 4, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Bulgarian Split Squat", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Seated Leg Curl", "target_sets": 3, "target_reps": "10-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Seated Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "全身 3天",
+    "description": "适合新手和忙碌周期的全身模板，兼顾基础动作和恢复。",
+    "goal": "general",
+    "days": [
+      {
+        "name": "Day 1",
+        "exercises": [
+          { "exercise_name_en": "Barbell Back Squat", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 150 },
+          { "exercise_name_en": "Barbell Bench Press", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Seated Cable Row", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Cable Lateral Raise", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Crunch", "target_sets": 3, "target_reps": "15-20", "rest_seconds": 45 }
+        ]
+      },
+      {
+        "name": "Day 2",
+        "exercises": [
+          { "exercise_name_en": "Romanian Deadlift", "target_sets": 4, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Barbell Overhead Press", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Lat Pulldown", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 75 },
+          { "exercise_name_en": "Walking Lunge", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Plank", "target_sets": 3, "target_reps": "45-60s", "rest_seconds": 45 }
+        ]
+      },
+      {
+        "name": "Day 3",
+        "exercises": [
+          { "exercise_name_en": "Front Squat", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 150 },
+          { "exercise_name_en": "Dumbbell Flat Bench Press", "target_sets": 4, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "Pull-Up", "target_sets": 4, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Barbell Hip Thrust", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Standing Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "531 4天",
+    "description": "围绕四大主项的 Wendler 5/3/1 风格模板，适合力量周期。",
+    "goal": "strength",
+    "days": [
+      {
+        "name": "Press",
+        "exercises": [
+          { "exercise_name_en": "Barbell Overhead Press", "target_sets": 5, "target_reps": "5/3/1", "rest_seconds": 150 },
+          { "exercise_name_en": "Dumbbell Flat Bench Press", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Pull-Up", "target_sets": 4, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Cable Lateral Raise", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Deadlift",
+        "exercises": [
+          { "exercise_name_en": "Conventional Deadlift", "target_sets": 5, "target_reps": "5/3/1", "rest_seconds": 180 },
+          { "exercise_name_en": "Barbell Hip Thrust", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Seated Leg Curl", "target_sets": 3, "target_reps": "10-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Plank", "target_sets": 3, "target_reps": "45-60s", "rest_seconds": 45 }
+        ]
+      },
+      {
+        "name": "Bench",
+        "exercises": [
+          { "exercise_name_en": "Barbell Bench Press", "target_sets": 5, "target_reps": "5/3/1", "rest_seconds": 150 },
+          { "exercise_name_en": "Incline Barbell Bench Press", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "Seated Cable Row", "target_sets": 4, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Cable Triceps Pushdown", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Squat",
+        "exercises": [
+          { "exercise_name_en": "Barbell Back Squat", "target_sets": 5, "target_reps": "5/3/1", "rest_seconds": 180 },
+          { "exercise_name_en": "Front Squat", "target_sets": 3, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Leg Press", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Standing Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "PHUL 4天",
+    "description": "Power Hypertrophy Upper Lower，兼顾低次数力量和高次数容量。",
+    "goal": "strength",
+    "days": [
+      {
+        "name": "Upper Power",
+        "exercises": [
+          { "exercise_name_en": "Barbell Bench Press", "target_sets": 4, "target_reps": "3-5", "rest_seconds": 150 },
+          { "exercise_name_en": "Barbell Overhead Press", "target_sets": 3, "target_reps": "3-5", "rest_seconds": 150 },
+          { "exercise_name_en": "Pull-Up", "target_sets": 4, "target_reps": "4-6", "rest_seconds": 120 },
+          { "exercise_name_en": "Pendlay Row", "target_sets": 4, "target_reps": "4-6", "rest_seconds": 120 },
+          { "exercise_name_en": "Barbell Curl", "target_sets": 3, "target_reps": "6-8", "rest_seconds": 75 },
+          { "exercise_name_en": "Close-Grip Bench Press", "target_sets": 3, "target_reps": "5-8", "rest_seconds": 90 }
+        ]
+      },
+      {
+        "name": "Lower Power",
+        "exercises": [
+          { "exercise_name_en": "Barbell Back Squat", "target_sets": 4, "target_reps": "3-5", "rest_seconds": 180 },
+          { "exercise_name_en": "Conventional Deadlift", "target_sets": 3, "target_reps": "3-5", "rest_seconds": 180 },
+          { "exercise_name_en": "Leg Press", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "Seated Calf Raise", "target_sets": 4, "target_reps": "10-15", "rest_seconds": 45 }
+        ]
+      },
+      {
+        "name": "Upper Hypertrophy",
+        "exercises": [
+          { "exercise_name_en": "Incline Barbell Bench Press", "target_sets": 4, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Machine Chest Press", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 75 },
+          { "exercise_name_en": "Lat Pulldown", "target_sets": 4, "target_reps": "10-12", "rest_seconds": 75 },
+          { "exercise_name_en": "Seated Cable Row", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 75 },
+          { "exercise_name_en": "Cable Lateral Raise", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Cable Curl", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Cable Triceps Pushdown", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Lower Hypertrophy",
+        "exercises": [
+          { "exercise_name_en": "Front Squat", "target_sets": 4, "target_reps": "8-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Romanian Deadlift", "target_sets": 4, "target_reps": "8-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Bulgarian Split Squat", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Leg Extension", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Lying Leg Curl", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Standing Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Bro Split 5天",
+    "description": "经典一周五练单肌群分化，适合高容量雕刻训练。",
+    "goal": "hypertrophy",
+    "days": [
+      {
+        "name": "Chest",
+        "exercises": [
+          { "exercise_name_en": "Barbell Bench Press", "target_sets": 4, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Incline Barbell Bench Press", "target_sets": 4, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "Dumbbell Flat Bench Press", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Cable Fly", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Push-Up", "target_sets": 2, "target_reps": "AMRAP", "rest_seconds": 45 }
+        ]
+      },
+      {
+        "name": "Back",
+        "exercises": [
+          { "exercise_name_en": "Pull-Up", "target_sets": 4, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Lat Pulldown", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 75 },
+          { "exercise_name_en": "Seated Cable Row", "target_sets": 4, "target_reps": "8-12", "rest_seconds": 90 },
+          { "exercise_name_en": "T-Bar Row", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "Face Pull", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Shoulders",
+        "exercises": [
+          { "exercise_name_en": "Barbell Overhead Press", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Arnold Press", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 75 },
+          { "exercise_name_en": "Cable Lateral Raise", "target_sets": 4, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Face Pull", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 }
+        ]
+      },
+      {
+        "name": "Arms",
+        "exercises": [
+          { "exercise_name_en": "Barbell Curl", "target_sets": 3, "target_reps": "8-12", "rest_seconds": 60 },
+          { "exercise_name_en": "EZ Bar Curl", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 60 },
+          { "exercise_name_en": "Hammer Curl", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 60 },
+          { "exercise_name_en": "Cable Curl", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Cable Triceps Pushdown", "target_sets": 4, "target_reps": "10-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Close-Grip Bench Press", "target_sets": 3, "target_reps": "6-10", "rest_seconds": 90 }
+        ]
+      },
+      {
+        "name": "Legs",
+        "exercises": [
+          { "exercise_name_en": "Barbell Back Squat", "target_sets": 4, "target_reps": "6-8", "rest_seconds": 150 },
+          { "exercise_name_en": "Romanian Deadlift", "target_sets": 4, "target_reps": "8-10", "rest_seconds": 120 },
+          { "exercise_name_en": "Leg Press", "target_sets": 3, "target_reps": "10-15", "rest_seconds": 90 },
+          { "exercise_name_en": "Leg Extension", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Seated Leg Curl", "target_sets": 3, "target_reps": "12-15", "rest_seconds": 60 },
+          { "exercise_name_en": "Standing Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Full Body 3天（强度版）",
+    "description": "更偏力量发展的全身三天模板，主项强度更高。",
+    "goal": "strength",
+    "days": [
+      {
+        "name": "Strength A",
+        "exercises": [
+          { "exercise_name_en": "Barbell Back Squat", "target_sets": 5, "target_reps": "3-5", "rest_seconds": 180 },
+          { "exercise_name_en": "Barbell Bench Press", "target_sets": 5, "target_reps": "3-5", "rest_seconds": 150 },
+          { "exercise_name_en": "Pull-Up", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Barbell Hip Thrust", "target_sets": 3, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Crunch", "target_sets": 3, "target_reps": "15-20", "rest_seconds": 45 }
+        ]
+      },
+      {
+        "name": "Strength B",
+        "exercises": [
+          { "exercise_name_en": "Front Squat", "target_sets": 5, "target_reps": "3-5", "rest_seconds": 180 },
+          { "exercise_name_en": "Barbell Overhead Press", "target_sets": 5, "target_reps": "3-5", "rest_seconds": 150 },
+          { "exercise_name_en": "Pendlay Row", "target_sets": 4, "target_reps": "5-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Romanian Deadlift", "target_sets": 3, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Plank", "target_sets": 3, "target_reps": "45-60s", "rest_seconds": 45 }
+        ]
+      },
+      {
+        "name": "Strength C",
+        "exercises": [
+          { "exercise_name_en": "Hack Squat", "target_sets": 4, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Incline Barbell Bench Press", "target_sets": 4, "target_reps": "6-8", "rest_seconds": 120 },
+          { "exercise_name_en": "Chin-Up", "target_sets": 4, "target_reps": "6-10", "rest_seconds": 120 },
+          { "exercise_name_en": "T-Bar Row", "target_sets": 3, "target_reps": "8-10", "rest_seconds": 90 },
+          { "exercise_name_en": "Walking Lunge", "target_sets": 3, "target_reps": "10-12", "rest_seconds": 90 },
+          { "exercise_name_en": "Standing Calf Raise", "target_sets": 4, "target_reps": "12-20", "rest_seconds": 45 }
+        ]
+      }
+    ]
+  }
+]
