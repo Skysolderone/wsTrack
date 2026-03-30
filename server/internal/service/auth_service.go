@@ -4,8 +4,10 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"net/mail"
 	"net/http"
 	"strings"
+	"unicode/utf8"
 
 	"github.com/google/uuid"
 	"github.com/redis/go-redis/v9"
@@ -37,6 +39,9 @@ func NewAuthService(users repository.UserRepository, redisClient *redis.Client, 
 func (s *AuthService) Register(req dto.RegisterRequest) (*dto.AuthResponse, error) {
 	email := strings.TrimSpace(strings.ToLower(req.Email))
 	nickname := strings.TrimSpace(req.Nickname)
+	if err := validateRegisterInput(email, req.Password, nickname); err != nil {
+		return nil, err
+	}
 	if nickname == "" {
 		return nil, apperrors.New(http.StatusBadRequest, apperrors.CodeBadRequest, "nickname cannot be empty")
 	}
@@ -256,6 +261,24 @@ func (s *AuthService) deleteRefreshToken(userID uuid.UUID) error {
 
 func refreshTokenKey(userID uuid.UUID) string {
 	return fmt.Sprintf("refresh:%s", userID.String())
+}
+
+func validateRegisterInput(email, password, nickname string) error {
+	parsedEmail, err := mail.ParseAddress(email)
+	if err != nil || !strings.EqualFold(parsedEmail.Address, email) {
+		return apperrors.New(http.StatusBadRequest, apperrors.CodeBadRequest, "invalid email address")
+	}
+
+	if len(password) < 8 || len(password) > 64 {
+		return apperrors.New(http.StatusBadRequest, apperrors.CodeBadRequest, "password must be between 8 and 64 characters")
+	}
+
+	nicknameLength := utf8.RuneCountInString(nickname)
+	if nicknameLength < 2 || nicknameLength > 50 {
+		return apperrors.New(http.StatusBadRequest, apperrors.CodeBadRequest, "nickname must be between 2 and 50 characters")
+	}
+
+	return nil
 }
 
 func toUserInfo(user *model.User) dto.UserInfo {

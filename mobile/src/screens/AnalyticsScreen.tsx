@@ -348,6 +348,7 @@ export const AnalyticsScreen = () => {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
         style={styles.container}
+        testID="analytics-screen"
       >
         <View style={styles.header}>
           <View style={styles.headerRow}>
@@ -432,15 +433,19 @@ export const AnalyticsScreen = () => {
           <View style={styles.metricCardWrap}>
             <InfoCard
               description="本周已完成训练次数"
+              testID="analytics-weekly-workout-count-card"
               title="本周频率"
               value={`${weeklyWorkoutCount}`}
+              valueTestID="analytics-weekly-workout-count-value"
             />
           </View>
           <View style={styles.metricCardWrap}>
             <InfoCard
               description="连续训练天数"
+              testID="analytics-streak-card"
               title="Streak"
               value={`${streak}`}
+              valueTestID="analytics-streak-value"
             />
           </View>
         </View>
@@ -449,8 +454,10 @@ export const AnalyticsScreen = () => {
           <View style={styles.metricCardWrap}>
             <InfoCard
               description={`上周 ${Math.round(comparison?.previousWeekVolume ?? 0)}`}
+              testID="analytics-weekly-volume-card"
               title="本周总容量"
               value={`${Math.round(comparison?.thisWeekVolume ?? 0)}`}
+              valueTestID="analytics-weekly-volume-value"
             />
           </View>
           <View style={styles.metricCardWrap}>

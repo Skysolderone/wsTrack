@@ -27,7 +27,7 @@ func NewAuthHandler(authService *service.AuthService) *AuthHandler {
 // @Accept json
 // @Produce json
 // @Param request body dto.RegisterRequest true "Register request"
-// @Success 200 {object} response.Response{data=dto.AuthResponse}
+// @Success 201 {object} response.Response{data=dto.AuthResponse}
 // @Failure 400 {object} response.Response
 // @Failure 409 {object} response.Response
 // @Failure 500 {object} response.Response
@@ -45,7 +45,7 @@ func (h *AuthHandler) Register(c *gin.Context) {
 		return
 	}
 
-	response.Success(c, res)
+	response.Created(c, res)
 }
 
 // Login godoc

@@ -211,6 +211,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
             styles.sectionMain,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID={`active-workout-exercise-${section.exercise.exerciseId}`}
         >
           <View style={styles.sectionCopy}>
             <Text style={styles.sectionTitle}>{section.exercise.exerciseName}</Text>
@@ -248,6 +249,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
               styles.iconButton,
               pressed ? styles.buttonPressed : undefined,
             ]}
+            testID={`active-workout-add-set-${section.exercise.exerciseId}`}
           >
             <Plus color={colors.text} size={16} strokeWidth={2.8} />
           </Pressable>
@@ -303,6 +305,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
           item.isCompleted ? styles.setRowCompleted : undefined,
           item.isPr ? styles.setRowPr : undefined,
         ]}
+        testID={`active-workout-set-row-${item.setNumber}`}
       >
         <View style={styles.groupCell}>
           <Text style={styles.groupLabel}>{item.setNumber}</Text>
@@ -326,8 +329,14 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
             styles.valueCell,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID={`active-workout-set-weight-${item.setNumber}`}
         >
-          <Text style={styles.valueMain}>{item.weight ?? "--"}</Text>
+          <Text
+            style={styles.valueMain}
+            testID={`active-workout-set-weight-value-${item.setNumber}`}
+          >
+            {item.weight ?? "--"}
+          </Text>
           <Text style={styles.valueSub}>
             上次 {buildReferenceLabel(item.previousWeight, item.unit)}
           </Text>
@@ -350,8 +359,14 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
             styles.valueCell,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID={`active-workout-set-reps-${item.setNumber}`}
         >
-          <Text style={styles.valueMain}>{item.reps ?? "--"}</Text>
+          <Text
+            style={styles.valueMain}
+            testID={`active-workout-set-reps-value-${item.setNumber}`}
+          >
+            {item.reps ?? "--"}
+          </Text>
           <Text style={styles.valueSub}>上次 {buildReferenceLabel(item.previousReps)}</Text>
         </Pressable>
 
@@ -361,6 +376,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
             styles.smallCell,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID={`active-workout-set-rpe-${item.setNumber}`}
         >
           <Text style={styles.smallCellText}>{item.rpe ?? "--"}</Text>
         </Pressable>
@@ -374,6 +390,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
             item.isWarmup ? styles.toggleCellActive : undefined,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID={`active-workout-set-warmup-${item.setNumber}`}
         >
           <Text style={styles.toggleText}>热身</Text>
         </Pressable>
@@ -388,6 +405,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
             item.isCompleted ? styles.checkCellDone : undefined,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID={`active-workout-set-complete-${item.setNumber}`}
         >
           <Text style={styles.checkText}>{item.isCompleted ? "✓" : "完成"}</Text>
         </Pressable>
@@ -396,15 +414,19 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
   );
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="active-workout-screen">
       <View style={styles.topBar}>
         <View style={styles.metricCard}>
           <Text style={styles.metricLabel}>训练计时</Text>
-          <Text style={styles.metricValue}>{formatDuration(activeWorkout.elapsedSeconds)}</Text>
+          <Text style={styles.metricValue} testID="active-workout-timer-value">
+            {formatDuration(activeWorkout.elapsedSeconds)}
+          </Text>
         </View>
         <View style={styles.metricCard}>
           <Text style={styles.metricLabel}>总容量</Text>
-          <Text style={styles.metricValue}>{activeWorkout.totalVolume}</Text>
+          <Text style={styles.metricValue} testID="active-workout-total-volume-value">
+            {activeWorkout.totalVolume}
+          </Text>
         </View>
         <Pressable
           accessibilityRole="button"
@@ -413,6 +435,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
             styles.finishButton,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID="active-workout-finish-button"
         >
           <Text style={styles.finishButtonText}>完成</Text>
         </Pressable>
@@ -446,6 +469,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
             styles.addExerciseButton,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID="active-workout-add-exercise-button"
         >
           <Text style={styles.addExerciseText}>添加动作</Text>
         </Pressable>
@@ -514,7 +538,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
       >
         <View style={styles.modalOverlay}>
           <Pressable onPress={() => setRpeTarget(null)} style={styles.modalScrim} />
-          <View style={styles.rpeSheet}>
+          <View style={styles.rpeSheet} testID="active-workout-rpe-sheet">
             <Text style={styles.rpeTitle}>选择 RPE</Text>
             <View style={styles.rpeGrid}>
               {rpeOptions.map((value) => (
@@ -532,6 +556,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
                     styles.rpeChip,
                     pressed ? styles.buttonPressed : undefined,
                   ]}
+                  testID={`active-workout-rpe-option-${value.toFixed(1)}`}
                 >
                   <Text style={styles.rpeChipText}>{value.toFixed(1)}</Text>
                 </Pressable>
@@ -551,6 +576,7 @@ export const ActiveWorkoutScreen = ({ navigation }: ActiveWorkoutScreenProps) =>
                 styles.clearRpeButton,
                 pressed ? styles.buttonPressed : undefined,
               ]}
+              testID="active-workout-rpe-clear"
             >
               <Text style={styles.clearRpeText}>清空 RPE</Text>
             </Pressable>

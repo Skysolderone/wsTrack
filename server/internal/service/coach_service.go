@@ -43,6 +43,10 @@ func NewCoachService(
 }
 
 func (s *CoachService) Invite(coachID uuid.UUID, req dto.InviteClientRequest) (*dto.CoachInvitationResponse, error) {
+	if _, err := s.requireCoach(coachID); err != nil {
+		return nil, err
+	}
+
 	email := strings.TrimSpace(strings.ToLower(req.ClientEmail))
 	if email == "" {
 		return nil, apperrors.New(http.StatusBadRequest, apperrors.CodeBadRequest, "client_email cannot be empty")
@@ -96,6 +100,10 @@ func (s *CoachService) Invite(coachID uuid.UUID, req dto.InviteClientRequest) (*
 }
 
 func (s *CoachService) ListClients(coachID uuid.UUID) ([]dto.CoachClientSummaryResponse, error) {
+	if _, err := s.requireCoach(coachID); err != nil {
+		return nil, err
+	}
+
 	items, err := s.coaches.ListCoachClients(coachID)
 	if err != nil {
 		return nil, apperrors.Wrap(err, http.StatusInternalServerError, apperrors.CodeInternal, "failed to list coach clients")
@@ -105,6 +113,10 @@ func (s *CoachService) ListClients(coachID uuid.UUID) ([]dto.CoachClientSummaryR
 }
 
 func (s *CoachService) GetClientDetail(coachID, clientID uuid.UUID) (*dto.CoachClientDetailResponse, error) {
+	if _, err := s.requireCoach(coachID); err != nil {
+		return nil, err
+	}
+
 	summary, err := s.coaches.GetCoachClientSummary(coachID, clientID)
 	if err != nil {
 		return nil, apperrors.Wrap(err, http.StatusInternalServerError, apperrors.CodeInternal, "failed to query coach client")
@@ -126,12 +138,16 @@ func (s *CoachService) GetClientDetail(coachID, clientID uuid.UUID) (*dto.CoachC
 }
 
 func (s *CoachService) ListClientWorkouts(coachID, clientID uuid.UUID, filter dto.WorkoutFilter) ([]dto.WorkoutListItem, int64, error) {
+	if _, err := s.requireCoach(coachID); err != nil {
+		return nil, 0, err
+	}
+
 	allowed, err := s.coaches.HasActiveClientRelation(coachID, clientID)
 	if err != nil {
 		return nil, 0, apperrors.Wrap(err, http.StatusInternalServerError, apperrors.CodeInternal, "failed to query coach-client relation")
 	}
 	if !allowed {
-		return nil, 0, apperrors.New(http.StatusForbidden, apperrors.CodeForbidden, "active coach-client relationship required")
+		return nil, 0, apperrors.New(http.StatusNotFound, apperrors.CodeNotFound, "client not found")
 	}
 
 	items, total, err := s.workouts.List(clientID, filter)
@@ -143,12 +159,16 @@ func (s *CoachService) ListClientWorkouts(coachID, clientID uuid.UUID, filter dt
 }
 
 func (s *CoachService) PushPlan(coachID, clientID uuid.UUID, req dto.PushPlanRequest) (*dto.PlanDetailResponse, error) {
+	if _, err := s.requireCoach(coachID); err != nil {
+		return nil, err
+	}
+
 	allowed, err := s.coaches.HasActiveClientRelation(coachID, clientID)
 	if err != nil {
 		return nil, apperrors.Wrap(err, http.StatusInternalServerError, apperrors.CodeInternal, "failed to query coach-client relation")
 	}
 	if !allowed {
-		return nil, apperrors.New(http.StatusForbidden, apperrors.CodeForbidden, "active coach-client relationship required")
+		return nil, apperrors.New(http.StatusNotFound, apperrors.CodeNotFound, "client not found")
 	}
 
 	sourcePlan, err := s.plans.FindByID(req.PlanID, coachID)
@@ -179,6 +199,10 @@ func (s *CoachService) PushPlan(coachID, clientID uuid.UUID, req dto.PushPlanReq
 }
 
 func (s *CoachService) AddWorkoutComment(coachID, workoutID uuid.UUID, req dto.WorkoutCommentRequest) (*dto.WorkoutCommentResponse, error) {
+	if _, err := s.requireCoach(coachID); err != nil {
+		return nil, err
+	}
+
 	workout, err := s.coaches.FindWorkoutForCoach(coachID, workoutID)
 	if err != nil {
 		return nil, apperrors.Wrap(err, http.StatusInternalServerError, apperrors.CodeInternal, "failed to query workout")
@@ -222,6 +246,10 @@ func (s *CoachService) AddWorkoutComment(coachID, workoutID uuid.UUID, req dto.W
 }
 
 func (s *CoachService) GetDashboard(coachID uuid.UUID) (*dto.CoachDashboardResponse, error) {
+	if _, err := s.requireCoach(coachID); err != nil {
+		return nil, err
+	}
+
 	clients, err := s.coaches.ListCoachClients(coachID)
 	if err != nil {
 		return nil, apperrors.Wrap(err, http.StatusInternalServerError, apperrors.CodeInternal, "failed to query coach dashboard clients")
@@ -441,6 +469,21 @@ func (s *CoachService) requireInvitationUserMatch(userID, invitationID uuid.UUID
 	}
 
 	return user, invitation, nil
+}
+
+func (s *CoachService) requireCoach(userID uuid.UUID) (*model.User, error) {
+	user, err := s.users.FindByID(userID)
+	if err != nil {
+		return nil, apperrors.Wrap(err, http.StatusInternalServerError, apperrors.CodeInternal, "failed to query coach")
+	}
+	if user == nil {
+		return nil, apperrors.New(http.StatusNotFound, apperrors.CodeNotFound, "coach not found")
+	}
+	if user.Role != "coach" {
+		return nil, apperrors.New(http.StatusForbidden, apperrors.CodeForbidden, "coach role required")
+	}
+
+	return user, nil
 }
 
 func toCoachInvitationResponse(invitation *model.CoachInvitation) dto.CoachInvitationResponse {

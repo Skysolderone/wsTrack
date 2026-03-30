@@ -11,14 +11,14 @@ import { colors } from "../constants/colors";
 import { radii, spacing } from "../constants/sizes";
 
 interface NumericKeypadProps {
-  allowDecimal?: boolean;
+  allowDecimal?: boolean | undefined;
   leftShortcuts: number[];
   onClose: () => void;
   onConfirm: (value: number | null) => void;
   previousValue: number | null;
   rightShortcuts: number[];
   title: string;
-  unitLabel?: string;
+  unitLabel?: string | undefined;
   value: number | null;
   visible: boolean;
 }
@@ -66,7 +66,7 @@ export const NumericKeypad = ({
     }
   }, [value, visible]);
 
-  const displayValue = useMemo(() => (draft ? draft : "0"), [draft]);
+  const displayValue = useMemo(() => draft, [draft]);
 
   const appendCharacter = (character: string) => {
     setDraft((current) => {
@@ -94,6 +94,10 @@ export const NumericKeypad = ({
     onClose();
   };
 
+  const handleClear = () => {
+    setDraft("");
+  };
+
   return (
     <Modal
       animationType="slide"
@@ -107,26 +111,40 @@ export const NumericKeypad = ({
           <View style={styles.header}>
             <View style={styles.headerCopy}>
               <Text style={styles.title}>{title}</Text>
-              <Text style={styles.reference}>
+              <Text style={styles.reference} testID="numeric-keypad-reference">
                 上次参考: {previousValue !== null ? `${previousValue}${unitLabel ?? ""}` : "--"}
               </Text>
             </View>
-            <Pressable
-              accessibilityRole="button"
-              onPress={handleConfirm}
-              style={({ pressed }) => [
-                styles.confirmButton,
-                pressed ? styles.confirmButtonPressed : undefined,
-              ]}
-            >
-              <Text style={styles.confirmText}>确认</Text>
-            </Pressable>
+            <View style={styles.headerActions}>
+              <Pressable
+                accessibilityRole="button"
+                onPress={handleClear}
+                style={({ pressed }) => [
+                  styles.clearActionButton,
+                  pressed ? styles.clearActionButtonPressed : undefined,
+                ]}
+                testID="numeric-keypad-clear"
+              >
+                <Text style={styles.clearActionText}>清空</Text>
+              </Pressable>
+              <Pressable
+                accessibilityRole="button"
+                onPress={handleConfirm}
+                style={({ pressed }) => [
+                  styles.confirmButton,
+                  pressed ? styles.confirmButtonPressed : undefined,
+                ]}
+                testID="numeric-keypad-confirm"
+              >
+                <Text style={styles.confirmText}>确认</Text>
+              </Pressable>
+            </View>
           </View>
 
           <View style={styles.valueCard}>
-            <Text style={styles.valueText}>
+            <Text style={styles.valueText} testID="numeric-keypad-display">
               {displayValue}
-              {unitLabel ?? ""}
+              {displayValue ? unitLabel ?? "" : ""}
             </Text>
           </View>
 
@@ -141,6 +159,7 @@ export const NumericKeypad = ({
                     styles.shortcutButton,
                     pressed ? styles.shortcutButtonPressed : undefined,
                   ]}
+                  testID={`numeric-keypad-shortcut-${valueItem}`}
                 >
                   <Text style={styles.shortcutText}>{valueItem > 0 ? `+${valueItem}` : valueItem}</Text>
                 </Pressable>
@@ -159,6 +178,7 @@ export const NumericKeypad = ({
                         styles.keyButton,
                         pressed ? styles.keyButtonPressed : undefined,
                       ]}
+                      testID={`numeric-keypad-key-${key}`}
                     >
                       <Text style={styles.keyText}>{key}</Text>
                     </Pressable>
@@ -174,6 +194,7 @@ export const NumericKeypad = ({
                     styles.keyButton,
                     pressed ? styles.keyButtonPressed : undefined,
                   ]}
+                  testID={allowDecimal ? "numeric-keypad-key-decimal" : "numeric-keypad-key-clear"}
                 >
                   <Text style={allowDecimal ? styles.keyText : styles.keySubtleText}>
                     {allowDecimal ? "." : "清空"}
@@ -186,6 +207,7 @@ export const NumericKeypad = ({
                     styles.keyButton,
                     pressed ? styles.keyButtonPressed : undefined,
                   ]}
+                  testID="numeric-keypad-key-0"
                 >
                   <Text style={styles.keyText}>0</Text>
                 </Pressable>
@@ -196,6 +218,7 @@ export const NumericKeypad = ({
                     styles.keyButton,
                     pressed ? styles.keyButtonPressed : undefined,
                   ]}
+                  testID="numeric-keypad-backspace"
                 >
                   <Text style={styles.keyText}>⌫</Text>
                 </Pressable>
@@ -212,6 +235,7 @@ export const NumericKeypad = ({
                     styles.shortcutButton,
                     pressed ? styles.shortcutButtonPressed : undefined,
                   ]}
+                  testID={`numeric-keypad-shortcut-${valueItem}`}
                 >
                   <Text style={styles.shortcutText}>{valueItem > 0 ? `+${valueItem}` : valueItem}</Text>
                 </Pressable>
@@ -250,6 +274,11 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: spacing.xs,
   },
+  headerActions: {
+    alignItems: "center",
+    flexDirection: "row",
+    gap: spacing.sm,
+  },
   title: {
     color: colors.text,
     fontSize: 20,
@@ -275,6 +304,25 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 13,
     fontWeight: "800",
+  },
+  clearActionButton: {
+    alignItems: "center",
+    backgroundColor: colors.surfaceAlt,
+    borderColor: colors.border,
+    borderRadius: radii.pill,
+    borderWidth: 1,
+    justifyContent: "center",
+    minWidth: 64,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  clearActionButtonPressed: {
+    opacity: 0.82,
+  },
+  clearActionText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    fontWeight: "700",
   },
   valueCard: {
     alignItems: "center",

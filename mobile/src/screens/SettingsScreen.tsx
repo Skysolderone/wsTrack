@@ -44,6 +44,7 @@ export const SettingsScreen = () => {
 
   return (
     <ScreenContainer
+      testID="settings-screen"
       title={t("screens.settingsTitle")}
       subtitle={t("screens.settingsSubtitle")}
     >
@@ -55,6 +56,7 @@ export const SettingsScreen = () => {
             styles.accountButton,
             pressed ? styles.pressed : undefined,
           ]}
+          testID="settings-account-button"
         >
           <Text style={styles.accountButtonLabel}>
             {accessToken ? t("settings.profile") : t("auth.signIn")}

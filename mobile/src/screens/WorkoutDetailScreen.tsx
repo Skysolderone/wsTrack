@@ -187,6 +187,7 @@ export const WorkoutDetailScreen = ({
     <ScreenContainer
       onBackPress={() => navigation.goBack()}
       subtitle={detail.dateLabel}
+      testID="workout-detail-screen"
       title={detail.title}
     >
       <View style={styles.metricsRow}>

@@ -55,6 +55,7 @@ func GenerateAccessToken(userID uuid.UUID, role string) (string, error) {
 		TokenType: TokenTypeAccess,
 		RegisteredClaims: jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(cfg.AccessTokenTTL)),
+			ID:        uuid.NewString(),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 			Subject:   userID.String(),
 		},
@@ -74,6 +75,7 @@ func GenerateRefreshToken(userID uuid.UUID) (string, error) {
 		TokenType: TokenTypeRefresh,
 		RegisteredClaims: jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(cfg.RefreshTokenTTL)),
+			ID:        uuid.NewString(),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 			Subject:   userID.String(),
 		},

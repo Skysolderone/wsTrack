@@ -77,7 +77,7 @@ func (r *GormPlanExerciseRepository) ReorderExercises(dayID uuid.UUID, orderedID
 		for index, id := range orderedIDs {
 			if err := tx.Model(&model.PlanExercise{}).
 				Where("id = ? AND plan_day_id = ?", id, dayID).
-				Update("sort_order", index+1).Error; err != nil {
+				Update("sort_order", index).Error; err != nil {
 				return fmt.Errorf("reorder plan exercises: %w", err)
 			}
 		}
@@ -108,7 +108,7 @@ func (r *GormPlanExerciseRepository) nextSortOrder(dayID uuid.UUID) (int, error)
 	var maxSortOrder int
 	if err := r.db.Model(&model.PlanExercise{}).
 		Where("plan_day_id = ?", dayID).
-		Select("COALESCE(MAX(sort_order), 0)").
+		Select("COALESCE(MAX(sort_order), -1)").
 		Scan(&maxSortOrder).Error; err != nil {
 		return 0, fmt.Errorf("query next plan exercise sort order: %w", err)
 	}

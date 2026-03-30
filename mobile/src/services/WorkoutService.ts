@@ -177,7 +177,8 @@ const calculateExerciseVolume = (sets: WorkoutSessionSetSnapshot[]): number =>
 
 const calculateTotalSets = (exercises: WorkoutSessionExerciseSnapshot[]): number =>
   exercises.reduce(
-    (total, exercise) => total + exercise.sets.filter((set) => set.isCompleted).length,
+    (total, exercise) =>
+      total + exercise.sets.filter((set) => set.isCompleted && !set.isWarmup).length,
     0,
   );
 
@@ -780,11 +781,13 @@ export const recalculateWorkoutTotals = async (workoutId: string): Promise<void>
           weight: set.weight,
         })),
       );
-      const totalSets = sets.filter((set) => set.isCompleted).length;
+      const filteredTotalSets = sets.filter(
+        (set) => set.isCompleted && !set.isWarmup,
+      ).length;
 
       return {
         exercise,
-        totalSets,
+        totalSets: filteredTotalSets,
         volume,
       };
     }),

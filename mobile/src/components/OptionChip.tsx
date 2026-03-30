@@ -5,11 +5,12 @@ import { radii, spacing } from "../constants/sizes";
 
 interface OptionChipProps {
   label: string;
-  selected: boolean;
   onPress: () => void;
+  selected: boolean;
+  testID?: string;
 }
 
-export const OptionChip = ({ label, onPress, selected }: OptionChipProps) => (
+export const OptionChip = ({ label, onPress, selected, testID }: OptionChipProps) => (
   <Pressable
     onPress={onPress}
     style={({ pressed }) => [
@@ -17,6 +18,7 @@ export const OptionChip = ({ label, onPress, selected }: OptionChipProps) => (
       selected ? styles.chipSelected : undefined,
       pressed ? styles.chipPressed : undefined,
     ]}
+    testID={testID}
   >
     <Text style={[styles.label, selected ? styles.labelSelected : undefined]}>{label}</Text>
   </Pressable>

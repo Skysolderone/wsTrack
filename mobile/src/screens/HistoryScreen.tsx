@@ -74,6 +74,7 @@ const renderWorkoutCard = (
       styles.workoutCard,
       pressed ? styles.cardPressed : undefined,
     ]}
+    testID="history-workout-card"
   >
     <View style={styles.workoutCardTop}>
       <View style={styles.workoutCardCopy}>
@@ -182,11 +183,13 @@ export const HistoryScreen = (_props: HistoryScreenProps) => {
           label="列表视图"
           onPress={() => setViewMode("list")}
           selected={viewMode === "list"}
+          testID="history-view-list"
         />
         <OptionChip
           label="日历视图"
           onPress={() => setViewMode("calendar")}
           selected={viewMode === "calendar"}
+          testID="history-view-calendar"
         />
       </View>
 
@@ -208,6 +211,7 @@ export const HistoryScreen = (_props: HistoryScreenProps) => {
             label={item.label}
             onPress={() => setDateRange(item.key as DateRangeFilter)}
             selected={dateRange === item.key}
+            testID={`history-range-${item.key}`}
           />
         ))}
       </View>
@@ -301,7 +305,7 @@ export const HistoryScreen = (_props: HistoryScreenProps) => {
     );
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="history-screen">
       <FlatList
         contentContainerStyle={styles.content}
         data={data}

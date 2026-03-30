@@ -143,7 +143,8 @@ const calculateWorkoutTotals = (exercises: ActiveExercise[]): {
   totalVolume: number;
 } => ({
   totalSets: exercises.reduce(
-    (total, exercise) => total + exercise.sets.filter((set) => set.isCompleted).length,
+    (total, exercise) =>
+      total + exercise.sets.filter((set) => set.isCompleted && !set.isWarmup).length,
     0,
   ),
   totalVolume: Number(
@@ -995,9 +996,12 @@ export const useWorkoutStore = create<WorkoutStoreState>((set, get) => ({
       return null;
     }
 
+    const finalizedExercises = normalizeExercises(latestWorkout.exercises);
+    const finalizedTotals = calculateWorkoutTotals(finalizedExercises);
+
     const finishedAt = Date.now();
     await finalizeWorkoutSession({
-      activeExercises: latestWorkout.exercises.map((exercise) => ({
+      activeExercises: finalizedExercises.map((exercise) => ({
         exerciseId: exercise.exerciseId,
         exerciseName: exercise.exerciseName,
         restSeconds: exercise.restSeconds,
@@ -1018,7 +1022,7 @@ export const useWorkoutStore = create<WorkoutStoreState>((set, get) => ({
           ),
           endedAt: finishedAt,
           startedAt: latestWorkout.startedAt.getTime(),
-          totalVolume: latestWorkout.totalVolume,
+          totalVolume: finalizedTotals.totalVolume,
           workoutId: latestWorkout.workoutId,
         });
       } catch {

@@ -197,10 +197,11 @@ export const PlanListScreen = (_props: PlanListScreenProps) => {
             styles.planBody,
             pressed ? styles.planBodyPressed : undefined,
           ]}
+          testID={`plan-list-card-${item.id}`}
         >
           <View style={styles.planHeader}>
             <View style={styles.planHeaderCopy}>
-              <Text numberOfLines={1} style={styles.planName}>
+              <Text numberOfLines={1} style={styles.planName} testID={`plan-list-card-name-${item.id}`}>
                 {item.name}
               </Text>
               <Text style={styles.planHint}>长按卡片可编辑、复制、归档或删除</Text>
@@ -243,6 +244,7 @@ export const PlanListScreen = (_props: PlanListScreenProps) => {
               item.isActive ? styles.activateButtonActive : undefined,
               pressed ? styles.activateButtonPressed : undefined,
             ]}
+            testID={`plan-list-activate-${item.id}`}
           >
             <Text
               style={[
@@ -260,7 +262,7 @@ export const PlanListScreen = (_props: PlanListScreenProps) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="plan-list-screen">
       <FlatList
         contentContainerStyle={styles.content}
         data={plans}
@@ -285,6 +287,7 @@ export const PlanListScreen = (_props: PlanListScreenProps) => {
                   styles.emptyAction,
                   pressed ? styles.emptyActionPressed : undefined,
                 ]}
+                testID="plan-list-empty-create"
               >
                 <Text style={styles.emptyActionText}>创建第一个计划</Text>
               </Pressable>
@@ -308,6 +311,7 @@ export const PlanListScreen = (_props: PlanListScreenProps) => {
                     styles.templateButton,
                     pressed ? styles.templateButtonPressed : undefined,
                   ]}
+                  testID="plan-list-community-button"
                 >
                   <Text style={styles.templateButtonText}>社区</Text>
                 </Pressable>
@@ -318,6 +322,7 @@ export const PlanListScreen = (_props: PlanListScreenProps) => {
                     styles.templateButton,
                     pressed ? styles.templateButtonPressed : undefined,
                   ]}
+                  testID="plan-list-template-button"
                 >
                   <Text style={styles.templateButtonText}>模板</Text>
                 </Pressable>
@@ -330,6 +335,7 @@ export const PlanListScreen = (_props: PlanListScreenProps) => {
                     styles.addButton,
                     pressed ? styles.addButtonPressed : undefined,
                   ]}
+                  testID="plan-list-create-button"
                 >
                   <Plus color={colors.text} size={18} strokeWidth={2.8} />
                 </Pressable>
@@ -354,11 +360,12 @@ export const PlanListScreen = (_props: PlanListScreenProps) => {
                       onPress={() => {
                         void handleImportAssignedPlan(assignment);
                       }}
-                      style={({ pressed }) => [
-                        styles.assignmentButton,
-                        pressed ? styles.activateButtonPressed : undefined,
-                      ]}
-                    >
+                    style={({ pressed }) => [
+                      styles.assignmentButton,
+                      pressed ? styles.activateButtonPressed : undefined,
+                    ]}
+                    testID={`plan-list-assignment-import-${assignment.assignmentId}`}
+                  >
                       <Text style={styles.assignmentButtonText}>导入</Text>
                     </Pressable>
                   </View>

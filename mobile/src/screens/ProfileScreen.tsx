@@ -79,6 +79,7 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
     return (
       <ScreenContainer
         onBackPress={navigation.goBack}
+        testID="profile-screen"
         title={t("profile.title")}
         subtitle={t("profile.signedOutSubtitle")}
       >
@@ -90,6 +91,7 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
               styles.primaryButton,
               pressed ? styles.primaryButtonPressed : undefined,
             ]}
+            testID="profile-signin-button"
           >
             <Text style={styles.primaryButtonLabel}>{t("auth.signIn")}</Text>
           </Pressable>
@@ -101,6 +103,7 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
   return (
     <ScreenContainer
       onBackPress={navigation.goBack}
+      testID="profile-screen"
       title={t("profile.title")}
       subtitle={t("profile.subtitle")}
     >
@@ -130,11 +133,15 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
         <Text style={styles.sectionTitle}>{t("profile.syncSection")}</Text>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>{t("profile.pendingChanges")}</Text>
-          <Text style={styles.infoValue}>{pendingCount}</Text>
+          <Text style={styles.infoValue} testID="profile-pending-count-value">
+            {pendingCount}
+          </Text>
         </View>
         <View style={styles.infoRow}>
           <Text style={styles.infoLabel}>{t("profile.lastSyncAt")}</Text>
-          <Text style={styles.infoValue}>{formatTimestamp(lastSyncAt, t("profile.never"))}</Text>
+          <Text style={styles.infoValue} testID="profile-last-sync-value">
+            {formatTimestamp(lastSyncAt, t("profile.never"))}
+          </Text>
         </View>
         {errorMessage ? <Text style={styles.errorText}>{errorMessage}</Text> : null}
         <Pressable
@@ -144,6 +151,7 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
             styles.primaryButton,
             (pressed || syncing) ? styles.primaryButtonPressed : undefined,
           ]}
+          testID="profile-sync-button"
         >
           <Text style={styles.primaryButtonLabel}>
             {syncing ? t("profile.syncing") : t("profile.syncNow")}
@@ -155,12 +163,14 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
             styles.secondaryButton,
             pressed ? styles.secondaryButtonPressed : undefined,
           ]}
+          testID="profile-refresh-button"
         >
           <Text style={styles.secondaryButtonLabel}>{t("profile.refreshProfile")}</Text>
         </Pressable>
         <Pressable
           onPress={() => void handleResetSync()}
           style={({ pressed }) => [styles.linkButton, pressed ? styles.linkPressed : undefined]}
+          testID="profile-reset-sync-button"
         >
           <Text style={styles.linkText}>{t("profile.resetSyncCursor")}</Text>
         </Pressable>
@@ -175,6 +185,7 @@ export const ProfileScreen = ({ navigation }: ProfileScreenProps) => {
             styles.dangerButton,
             pressed ? styles.secondaryButtonPressed : undefined,
           ]}
+          testID="profile-signout-button"
         >
           <Text style={styles.dangerButtonLabel}>{t("profile.signOut")}</Text>
         </Pressable>

@@ -140,6 +140,7 @@ export const ExercisePickerModal = ({
         language={language}
         onPress={() => handleExercisePress(item.id)}
         selected={selected}
+        testID={`exercise-picker-card-${item.id}`}
         trailing={
           selected ? (
             <View style={styles.selectionBadge}>
@@ -160,7 +161,7 @@ export const ExercisePickerModal = ({
     >
       <View style={styles.overlay}>
         <Pressable onPress={onClose} style={styles.scrim} />
-        <View style={styles.sheet}>
+        <View style={styles.sheet} testID="exercise-picker-modal">
           <View style={styles.header}>
             <View style={styles.headerCopy}>
               <Text style={styles.title}>{title}</Text>
@@ -177,6 +178,7 @@ export const ExercisePickerModal = ({
                 styles.closeButton,
                 pressed ? styles.closeButtonPressed : undefined,
               ]}
+              testID="exercise-picker-close"
             >
               <X color={colors.text} size={18} strokeWidth={2.4} />
             </Pressable>
@@ -290,6 +292,7 @@ export const ExercisePickerModal = ({
                   selectedIds.length === 0 ? styles.confirmButtonDisabled : undefined,
                   pressed ? styles.confirmButtonPressed : undefined,
                 ]}
+                testID="exercise-picker-confirm"
               >
                 <Text style={styles.confirmButtonText}>添加所选动作</Text>
               </Pressable>

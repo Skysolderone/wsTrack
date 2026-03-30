@@ -92,27 +92,27 @@ const MainTabsNavigator = () => {
       <Tab.Screen
         component={StartWorkoutScreen}
         name="Training"
-        options={{ tabBarLabel: t("tabs.training") }}
+        options={{ tabBarLabel: t("tabs.training"), tabBarButtonTestID: "tab-training" }}
       />
       <Tab.Screen
         component={PlanListScreen}
         name="Plans"
-        options={{ tabBarLabel: t("tabs.plans") }}
+        options={{ tabBarLabel: t("tabs.plans"), tabBarButtonTestID: "tab-plans" }}
       />
       <Tab.Screen
         component={HistoryScreen}
         name="History"
-        options={{ tabBarLabel: t("tabs.history") }}
+        options={{ tabBarLabel: t("tabs.history"), tabBarButtonTestID: "tab-history" }}
       />
       <Tab.Screen
         component={AnalyticsScreen}
         name="Analytics"
-        options={{ tabBarLabel: t("tabs.analytics") }}
+        options={{ tabBarLabel: t("tabs.analytics"), tabBarButtonTestID: "tab-analytics" }}
       />
       <Tab.Screen
         component={SettingsScreen}
         name="Settings"
-        options={{ tabBarLabel: t("tabs.settings") }}
+        options={{ tabBarLabel: t("tabs.settings"), tabBarButtonTestID: "tab-settings" }}
       />
     </Tab.Navigator>
   );

@@ -83,6 +83,7 @@ export const TemplateListScreen = ({ navigation }: TemplateListScreenProps) => {
             styles.templateHeader,
             pressed ? styles.cardPressed : undefined,
           ]}
+          testID={`template-list-card-${template.id}`}
         >
           <View style={styles.templateHeaderCopy}>
             <Text style={styles.templateName}>{template.name}</Text>
@@ -138,6 +139,7 @@ export const TemplateListScreen = ({ navigation }: TemplateListScreenProps) => {
                 styles.applyButton,
                 pressed ? styles.cardPressed : undefined,
               ]}
+              testID={`template-list-apply-${template.id}`}
             >
               <Text style={styles.applyButtonText}>使用此模板</Text>
             </Pressable>
@@ -151,6 +153,7 @@ export const TemplateListScreen = ({ navigation }: TemplateListScreenProps) => {
     <ScreenContainer
       onBackPress={() => navigation.goBack()}
       subtitle="从经典模板快速生成计划，也能查看你保存的自定义模板。"
+      testID="template-list-screen"
       title="训练模板"
     >
       {loading ? (

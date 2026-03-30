@@ -42,6 +42,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
   return (
     <ScreenContainer
       onBackPress={navigation.goBack}
+      testID="signup-screen"
       title={t("auth.signUpTitle")}
       subtitle={t("auth.signUpSubtitle")}
     >
@@ -55,6 +56,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             placeholder={t("auth.emailPlaceholder")}
             placeholderTextColor={colors.textMuted}
             style={styles.input}
+            testID="signup-email-input"
             value={email}
           />
         </View>
@@ -67,6 +69,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             placeholderTextColor={colors.textMuted}
             secureTextEntry
             style={styles.input}
+            testID="signup-password-input"
             value={password}
           />
         </View>
@@ -79,6 +82,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             placeholderTextColor={colors.textMuted}
             secureTextEntry
             style={styles.input}
+            testID="signup-confirm-password-input"
             value={confirmPassword}
           />
         </View>
@@ -92,6 +96,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
             styles.primaryButton,
             (pressed || loading) ? styles.primaryButtonPressed : undefined,
           ]}
+          testID="signup-submit-button"
         >
           <Text style={styles.primaryButtonLabel}>
             {loading ? t("auth.signingUp") : t("auth.signUp")}
@@ -101,6 +106,7 @@ export const SignUpScreen = ({ navigation }: SignUpScreenProps) => {
         <Pressable
           onPress={() => navigation.replace("Login")}
           style={({ pressed }) => [styles.linkButton, pressed ? styles.linkPressed : undefined]}
+          testID="signup-go-login-button"
         >
           <Text style={styles.linkText}>{t("auth.goToLogin")}</Text>
         </Pressable>

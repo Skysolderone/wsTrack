@@ -17,6 +17,7 @@ interface ExerciseCardProps {
   onLongPress?: () => void;
   onPress: () => void;
   selected?: boolean;
+  testID?: string;
   trailing?: ReactNode;
 }
 
@@ -45,6 +46,7 @@ export const ExerciseCard = memo(
     onLongPress,
     onPress,
     selected = false,
+    testID,
     trailing,
   }: ExerciseCardProps) => (
     <Pressable
@@ -55,9 +57,10 @@ export const ExerciseCard = memo(
         selected ? styles.cardSelected : undefined,
         pressed ? styles.cardPressed : undefined,
       ]}
+      testID={testID ?? "exercise-card-pressable"}
     >
       <View style={styles.leading}>
-        <View style={styles.equipmentBadge}>
+        <View style={styles.equipmentBadge} testID="exercise-card-equipment">
           <Text style={styles.equipmentText}>
             {buildEquipmentAbbreviation(exercise, language)}
           </Text>
@@ -79,7 +82,7 @@ export const ExerciseCard = memo(
         <View style={styles.tags}>
           {exercise.primaryMuscles.slice(0, 3).map((muscle) => (
             <View key={`${exercise.id}-${muscle}`} style={styles.tag}>
-              <Text style={styles.tagText}>
+              <Text style={styles.tagText} testID={`exercise-card-muscle-${muscle}`}>
                 {getLocalizedValue(muscleGroupLabels, muscle, language)}
               </Text>
             </View>

@@ -6,16 +6,20 @@ import { colors } from "../constants/colors";
 import { radii, spacing } from "../constants/sizes";
 
 interface ScreenContainerProps extends PropsWithChildren {
-  title: string;
+  backButtonTestID?: string;
   subtitle?: string;
   onBackPress?: () => void;
+  testID?: string;
+  title: string;
   headerRight?: ReactNode;
 }
 
 export const ScreenContainer = ({
+  backButtonTestID,
   children,
   headerRight,
   onBackPress,
+  testID,
   title,
   subtitle,
 }: ScreenContainerProps) => (
@@ -23,6 +27,7 @@ export const ScreenContainer = ({
     contentContainerStyle={styles.content}
     showsVerticalScrollIndicator={false}
     style={styles.container}
+    testID={testID}
   >
     <View style={styles.header}>
       {onBackPress || headerRight ? (
@@ -35,6 +40,7 @@ export const ScreenContainer = ({
                 styles.backButton,
                 pressed ? styles.backButtonPressed : undefined,
               ]}
+              testID={backButtonTestID}
             >
               <ArrowLeft color={colors.text} size={18} strokeWidth={2.4} />
             </Pressable>

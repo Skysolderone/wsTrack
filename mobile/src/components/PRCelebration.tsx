@@ -20,6 +20,7 @@ import type { PRCelebrationPayload } from "../store/workoutStore";
 
 interface PRCelebrationProps {
   celebration: PRCelebrationPayload | null;
+  onDismiss?: () => void;
   onClose: () => void;
   visible: boolean;
 }
@@ -78,11 +79,13 @@ const Particle = ({
 
 export const PRCelebration = ({
   celebration,
+  onDismiss,
   onClose,
   visible,
 }: PRCelebrationProps) => {
   const progress = useSharedValue(0);
   const particles = useMemo(() => buildParticleConfigs(), []);
+  const handleDismiss = onDismiss ?? onClose;
 
   useEffect(() => {
     if (!visible || !celebration) {
@@ -98,13 +101,13 @@ export const PRCelebration = ({
     Vibration.vibrate([0, 80, 60, 100]);
 
     const timeout = setTimeout(() => {
-      onClose();
+      handleDismiss();
     }, 2000);
 
     return () => {
       clearTimeout(timeout);
     };
-  }, [celebration, onClose, progress, visible]);
+  }, [celebration, handleDismiss, progress, visible]);
 
   if (!visible || !celebration) {
     return null;
@@ -114,7 +117,7 @@ export const PRCelebration = ({
   const secondaryCount = Math.max(0, celebration.records.length - 1);
 
   return (
-    <Pressable onPress={onClose} style={styles.overlay}>
+    <Pressable onPress={handleDismiss} style={styles.overlay} testID="pr-celebration-overlay">
       <View style={styles.particlesLayer}>
         {particles.map((config, index) => (
           <Particle key={`${config.angle}-${index}`} config={config} progress={progress} />
@@ -125,7 +128,7 @@ export const PRCelebration = ({
         <Text style={styles.title}>🏆 新纪录!</Text>
         <Text style={styles.exerciseName}>{celebration.exerciseName}</Text>
         {primaryRecord ? (
-          <Text style={styles.primaryRecord}>
+          <Text style={styles.primaryRecord} testID="pr-celebration-primary-record">
             {primaryRecord.label} · {primaryRecord.displayValue}
             {primaryRecord.displayUnit}
           </Text>

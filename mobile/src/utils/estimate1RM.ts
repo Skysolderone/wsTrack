@@ -5,8 +5,16 @@ export const estimate1RM = (
   reps: number,
   formula: OneRepMaxFormula = "epley",
 ): number => {
-  if (weight <= 0 || reps <= 0) {
+  if (weight < 0 || reps < 0) {
+    throw new Error("Weight and reps must be non-negative");
+  }
+
+  if (weight === 0 || reps === 0) {
     return 0;
+  }
+
+  if (reps === 1) {
+    return Number(weight.toFixed(2));
   }
 
   switch (formula) {

@@ -129,7 +129,7 @@ func (r *GormPlanRepository) CloneToUser(id, sourceUserID, targetUserID uuid.UUI
 
 		duplicated := model.Plan{
 			UserID:      targetUserID,
-			Name:        source.Name,
+			Name:        source.Name + " (副本)",
 			Description: source.Description,
 			Goal:        source.Goal,
 			IsActive:    false,

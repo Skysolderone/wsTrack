@@ -56,6 +56,7 @@ export const LoginScreen = ({ navigation }: LoginScreenProps) => {
   return (
     <ScreenContainer
       onBackPress={navigation.canGoBack() ? navigation.goBack : undefined}
+      testID="login-screen"
       title={t("auth.loginTitle")}
       subtitle={t("auth.loginSubtitle")}
     >
@@ -69,6 +70,7 @@ export const LoginScreen = ({ navigation }: LoginScreenProps) => {
             placeholder={t("auth.emailPlaceholder")}
             placeholderTextColor={colors.textMuted}
             style={styles.input}
+            testID="login-email-input"
             value={email}
           />
         </View>
@@ -81,6 +83,7 @@ export const LoginScreen = ({ navigation }: LoginScreenProps) => {
             placeholderTextColor={colors.textMuted}
             secureTextEntry
             style={styles.input}
+            testID="login-password-input"
             value={password}
           />
         </View>
@@ -94,6 +97,7 @@ export const LoginScreen = ({ navigation }: LoginScreenProps) => {
             styles.primaryButton,
             (pressed || loading) ? styles.primaryButtonPressed : undefined,
           ]}
+          testID="login-submit-button"
         >
           <Text style={styles.primaryButtonLabel}>
             {loading ? t("auth.signingIn") : t("auth.signIn")}
@@ -108,6 +112,7 @@ export const LoginScreen = ({ navigation }: LoginScreenProps) => {
               styles.secondaryButton,
               (pressed || loading) ? styles.secondaryButtonPressed : undefined,
             ]}
+            testID="login-apple-button"
           >
             <Text style={styles.secondaryButtonLabel}>{t("auth.signInWithApple")}</Text>
           </Pressable>
@@ -116,6 +121,7 @@ export const LoginScreen = ({ navigation }: LoginScreenProps) => {
         <Pressable
           onPress={() => navigation.replace("SignUp")}
           style={({ pressed }) => [styles.linkButton, pressed ? styles.linkPressed : undefined]}
+          testID="login-go-signup-button"
         >
           <Text style={styles.linkText}>{t("auth.goToSignUp")}</Text>
         </Pressable>
@@ -123,6 +129,7 @@ export const LoginScreen = ({ navigation }: LoginScreenProps) => {
         <Pressable
           onPress={resetToMainTabs}
           style={({ pressed }) => [styles.ghostButton, pressed ? styles.linkPressed : undefined]}
+          testID="login-continue-offline-button"
         >
           <Text style={styles.ghostButtonLabel}>{t("auth.continueOffline")}</Text>
         </Pressable>

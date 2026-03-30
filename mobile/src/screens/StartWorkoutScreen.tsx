@@ -147,15 +147,17 @@ export const StartWorkoutScreen = (_props: StartWorkoutScreenProps) => {
             styles.headerButton,
             pressed ? styles.headerButtonPressed : undefined,
           ]}
+          testID="start-workout-library-button"
         >
           <Text style={styles.headerButtonText}>动作库</Text>
         </Pressable>
       }
       subtitle="从计划、空白训练或最近一次训练开始。训练中断后支持恢复。"
+      testID="start-workout-screen"
       title="开始训练"
     >
       {activeWorkout ? (
-        <View style={styles.resumeCard}>
+        <View style={styles.resumeCard} testID="start-workout-resume-card">
           <View style={styles.resumeCopy}>
             <Text style={styles.resumeTitle}>存在未完成训练</Text>
             <Text style={styles.resumeSubtitle}>
@@ -166,11 +168,12 @@ export const StartWorkoutScreen = (_props: StartWorkoutScreenProps) => {
             <Pressable
               accessibilityRole="button"
               onPress={() => navigation.navigate("ActiveWorkout")}
-              style={({ pressed }) => [
-                styles.primaryButton,
-                pressed ? styles.buttonPressed : undefined,
-              ]}
-            >
+            style={({ pressed }) => [
+              styles.primaryButton,
+              pressed ? styles.buttonPressed : undefined,
+            ]}
+            testID="start-workout-resume-button"
+          >
               <Text style={styles.primaryButtonText}>恢复训练</Text>
             </Pressable>
             <Pressable
@@ -182,6 +185,7 @@ export const StartWorkoutScreen = (_props: StartWorkoutScreenProps) => {
                 styles.secondaryButton,
                 pressed ? styles.buttonPressed : undefined,
               ]}
+              testID="start-workout-discard-button"
             >
               <Text style={styles.secondaryButtonText}>放弃</Text>
             </Pressable>
@@ -214,6 +218,7 @@ export const StartWorkoutScreen = (_props: StartWorkoutScreenProps) => {
                 styles.optionCard,
                 pressed ? styles.optionCardPressed : undefined,
               ]}
+              testID={`start-workout-plan-day-${day.id}`}
             >
               <View style={styles.optionRow}>
                 <View style={styles.optionCopy}>
@@ -241,6 +246,7 @@ export const StartWorkoutScreen = (_props: StartWorkoutScreenProps) => {
             styles.blankStartButton,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID="start-workout-blank-button"
         >
           <Text style={styles.blankStartText}>开始空白训练</Text>
           <Text style={styles.blankStartHint}>训练中可随时添加动作</Text>
@@ -268,6 +274,7 @@ export const StartWorkoutScreen = (_props: StartWorkoutScreenProps) => {
                 styles.optionCard,
                 pressed ? styles.optionCardPressed : undefined,
               ]}
+              testID={`start-workout-repeat-${workout.workoutId}`}
             >
               <View style={styles.optionRow}>
                 <View style={styles.optionCopy}>

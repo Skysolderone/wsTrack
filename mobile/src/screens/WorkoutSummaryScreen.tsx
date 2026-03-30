@@ -151,37 +151,48 @@ export const WorkoutSummaryScreen = ({
       <ScreenContainer
         onBackPress={() => navigation.goBack()}
         subtitle="补充评分和日志后保存，本次训练会正式进入历史。"
+        testID="workout-summary-screen"
         title="训练摘要"
       >
         <InfoCard
           description={summary.dateLabel}
+          testID="workout-summary-total-volume-card"
           title={summary.title}
           value={`${summary.totalVolume}`}
+          valueTestID="workout-summary-total-volume-value"
         />
 
         <View style={styles.metricsRow}>
           <InfoCard
             description="训练时长"
+            testID="workout-summary-duration-card"
             title="Duration"
             value={formatDuration(summary.durationSeconds)}
+            valueTestID="workout-summary-duration-value"
           />
           <InfoCard
             description="完成总组数"
+            testID="workout-summary-total-sets-card"
             title="Sets"
             value={`${summary.totalSets}`}
+            valueTestID="workout-summary-total-sets-value"
           />
         </View>
 
         <View style={styles.metricsRow}>
           <InfoCard
             description="动作数量"
+            testID="workout-summary-exercise-count-card"
             title="Exercises"
             value={`${summary.exerciseCount}`}
+            valueTestID="workout-summary-exercise-count-value"
           />
           <InfoCard
             description="PR 数量"
+            testID="workout-summary-pr-count-card"
             title="PR"
             value={`${summary.prItems.length}`}
+            valueTestID="workout-summary-pr-count-value"
           />
         </View>
 
@@ -283,6 +294,7 @@ export const WorkoutSummaryScreen = ({
             styles.saveButton,
             pressed ? styles.buttonPressed : undefined,
           ]}
+          testID="workout-summary-save-button"
         >
           <Text style={styles.saveButtonText}>保存训练记录</Text>
         </Pressable>

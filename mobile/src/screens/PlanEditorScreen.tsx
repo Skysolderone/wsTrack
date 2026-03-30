@@ -457,6 +457,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                 styles.exerciseMain,
                 pressed ? styles.exerciseMainPressed : undefined,
               ]}
+              testID={`plan-editor-exercise-${item.id}`}
             >
               <Text numberOfLines={1} style={styles.exerciseName}>
                 {item.exercise.name}
@@ -492,6 +493,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                     placeholderTextColor={colors.textSubtle}
                     selectionColor={colors.primary}
                     style={styles.input}
+                    testID="plan-editor-target-sets-input"
                     value={draft.targetSets}
                   />
                 </View>
@@ -504,6 +506,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                     placeholderTextColor={colors.textSubtle}
                     selectionColor={colors.primary}
                     style={styles.input}
+                    testID="plan-editor-target-reps-input"
                     value={draft.targetReps}
                   />
                 </View>
@@ -517,6 +520,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                     placeholderTextColor={colors.textSubtle}
                     selectionColor={colors.primary}
                     style={styles.input}
+                    testID="plan-editor-rest-seconds-input"
                     value={draft.restSeconds}
                   />
                 </View>
@@ -532,6 +536,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                   placeholderTextColor={colors.textSubtle}
                   selectionColor={colors.primary}
                   style={[styles.input, styles.notesInput]}
+                  testID="plan-editor-notes-input"
                   textAlignVertical="top"
                   value={draft.notes}
                 />
@@ -546,6 +551,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                   styles.saveExerciseButton,
                   pressed ? styles.saveExerciseButtonPressed : undefined,
                 ]}
+                testID="plan-editor-save-exercise-button"
               >
                 <Text style={styles.saveExerciseButtonText}>保存动作参数</Text>
               </Pressable>
@@ -566,7 +572,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="plan-editor-screen">
       <View style={styles.topBar}>
         <Pressable
           accessibilityRole="button"
@@ -575,6 +581,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
             styles.topBarButton,
             pressed ? styles.topBarButtonPressed : undefined,
           ]}
+          testID="plan-editor-back-button"
         >
           <ArrowLeft color={colors.text} size={18} strokeWidth={2.4} />
         </Pressable>
@@ -590,6 +597,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
             styles.topBarSaveButton,
             pressed ? styles.topBarSaveButtonPressed : undefined,
           ]}
+          testID="plan-editor-top-save-button"
         >
           <Text style={styles.topBarSaveText}>{savingMeta ? "保存中" : "保存"}</Text>
         </Pressable>
@@ -603,6 +611,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
           placeholderTextColor={colors.textSubtle}
           selectionColor={colors.primary}
           style={styles.metaInput}
+          testID="plan-editor-name-input"
           value={planName}
         />
 
@@ -613,6 +622,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
               label={planGoalLabels[value][language]}
               onPress={() => setGoal(value)}
               selected={goal === value}
+              testID={`plan-editor-goal-${value}`}
             />
           ))}
         </View>
@@ -632,6 +642,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
               plan?.isActive ? styles.activatePlanButtonActive : undefined,
               pressed ? styles.activatePlanButtonPressed : undefined,
             ]}
+            testID="plan-editor-activate-button"
           >
             <Text
               style={[
@@ -653,6 +664,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
             styles.saveTemplateButton,
             pressed ? styles.saveTemplateButtonPressed : undefined,
           ]}
+          testID="plan-editor-save-template-button"
         >
           <Text style={styles.saveTemplateButtonText}>另存为模板</Text>
         </Pressable>
@@ -670,6 +682,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
               styles.dayAddButton,
               pressed ? styles.dayAddButtonPressed : undefined,
             ]}
+            testID="plan-editor-add-day-button"
           >
             <Plus color={colors.text} size={16} strokeWidth={2.8} />
             <Text style={styles.dayAddButtonText}>添加 Day</Text>
@@ -695,6 +708,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                 selectedDayId === day.id ? styles.dayTabSelected : undefined,
                 pressed ? styles.dayTabPressed : undefined,
               ]}
+              testID={`plan-editor-day-tab-${index}`}
             >
               <Text
                 style={[
@@ -734,6 +748,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                   styles.iconAction,
                   pressed ? styles.iconActionPressed : undefined,
                 ]}
+                testID="plan-editor-rename-day-button"
               >
                 <PencilLine color={colors.text} size={16} strokeWidth={2.2} />
               </Pressable>
@@ -744,6 +759,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                   styles.iconAction,
                   pressed ? styles.iconActionPressed : undefined,
                 ]}
+                testID="plan-editor-delete-day-button"
               >
                 <Trash2 color={colors.danger} size={16} strokeWidth={2.2} />
               </Pressable>
@@ -786,6 +802,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
               styles.noDayButton,
               pressed ? styles.noDayButtonPressed : undefined,
             ]}
+            testID="plan-editor-add-first-day-button"
           >
             <Text style={styles.noDayButtonText}>添加第一个 Day</Text>
           </Pressable>
@@ -802,6 +819,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
             !currentDay ? styles.bottomSecondaryButtonDisabled : undefined,
             pressed ? styles.bottomButtonPressed : undefined,
           ]}
+          testID="plan-editor-add-exercise-button"
         >
           <Text style={styles.bottomSecondaryButtonText}>添加动作</Text>
         </Pressable>
@@ -815,6 +833,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
             styles.bottomPrimaryButton,
             pressed ? styles.bottomButtonPressed : undefined,
           ]}
+          testID="plan-editor-save-plan-button"
         >
           <Text style={styles.bottomPrimaryButtonText}>
             {savingMeta ? "保存中..." : "保存计划"}
@@ -839,7 +858,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
         transparent
         visible={renameVisible}
       >
-        <View style={styles.dialogOverlay}>
+        <View style={styles.dialogOverlay} testID="plan-editor-rename-modal">
           <Pressable onPress={() => setRenameVisible(false)} style={styles.dialogScrim} />
           <View style={styles.dialogCard}>
             <Text style={styles.dialogTitle}>重命名训练日</Text>
@@ -851,6 +870,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
               placeholderTextColor={colors.textSubtle}
               selectionColor={colors.primary}
               style={styles.dialogInput}
+              testID="plan-editor-rename-input"
               value={renameValue}
             />
             <View style={styles.dialogActions}>
@@ -861,6 +881,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                   styles.dialogButton,
                   pressed ? styles.dialogButtonPressed : undefined,
                 ]}
+                testID="plan-editor-rename-cancel-button"
               >
                 <Text style={styles.dialogButtonText}>取消</Text>
               </Pressable>
@@ -873,6 +894,7 @@ export const PlanEditorScreen = ({ navigation, route }: PlanEditorScreenProps) =
                   styles.dialogPrimaryButton,
                   pressed ? styles.dialogButtonPressed : undefined,
                 ]}
+                testID="plan-editor-rename-save-button"
               >
                 <Text style={styles.dialogPrimaryButtonText}>保存名称</Text>
               </Pressable>

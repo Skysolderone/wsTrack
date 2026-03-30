@@ -42,6 +42,7 @@ export const SearchBar = ({
         placeholderTextColor={colors.textSubtle}
         selectionColor={colors.primary}
         style={styles.input}
+        testID="search-bar-input"
         value={value}
       />
       {value ? (
@@ -52,6 +53,7 @@ export const SearchBar = ({
             styles.clearButton,
             pressed ? styles.clearButtonPressed : undefined,
           ]}
+          testID="search-bar-clear"
         >
           <Text style={styles.clearText}>清空</Text>
         </Pressable>

@@ -87,10 +87,12 @@ const RegionShape = ({
   color,
   region,
   onPress,
+  testID,
 }: {
   color: string;
   onPress: () => void;
   region: MuscleRegion;
+  testID: string;
 }) =>
   region.type === "ellipse" ? (
     <Ellipse
@@ -103,6 +105,7 @@ const RegionShape = ({
       ry={region.height / 2}
       stroke={colors.border}
       strokeWidth={1}
+      testID={testID}
     />
   ) : (
     <Rect
@@ -113,6 +116,7 @@ const RegionShape = ({
       rx={10}
       stroke={colors.border}
       strokeWidth={1}
+      testID={testID}
       width={region.width}
       x={region.x}
       y={region.y}
@@ -176,6 +180,7 @@ export const MuscleHeatmap = ({ data, language }: MuscleHeatmapProps) => {
             color={lookup.get(region.muscle)?.color ?? "#2A2A3A"}
             onPress={() => setSelectedMuscle(region.muscle)}
             region={region}
+            testID={`muscle-heatmap-front-${region.muscle}-${index}`}
           />
         ))}
 
@@ -185,6 +190,7 @@ export const MuscleHeatmap = ({ data, language }: MuscleHeatmapProps) => {
             color={lookup.get(region.muscle)?.color ?? "#2A2A3A"}
             onPress={() => setSelectedMuscle(region.muscle)}
             region={region}
+            testID={`muscle-heatmap-back-${region.muscle}-${index}`}
           />
         ))}
       </Svg>

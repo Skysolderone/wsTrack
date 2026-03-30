@@ -1,0 +1,8 @@
+{
+  "tests": [
+    { "name": "app_cold_start", "target": "tti < 2000ms" },
+    { "name": "workout_screen_fps", "target": "fps >= 58" },
+    { "name": "exercise_list_scroll", "target": "fps >= 58" },
+    { "name": "chart_render", "target": "duration < 500ms" }
+  ]
+}

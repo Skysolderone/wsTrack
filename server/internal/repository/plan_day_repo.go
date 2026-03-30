@@ -77,7 +77,7 @@ func (r *GormPlanDayRepository) ReorderDays(planID uuid.UUID, orderedIDs []uuid.
 		for index, id := range orderedIDs {
 			if err := tx.Model(&model.PlanDay{}).
 				Where("id = ? AND plan_id = ?", id, planID).
-				Update("sort_order", index+1).Error; err != nil {
+				Update("sort_order", index).Error; err != nil {
 				return fmt.Errorf("reorder plan days: %w", err)
 			}
 		}
@@ -110,7 +110,7 @@ func (r *GormPlanDayRepository) nextSortOrder(planID uuid.UUID) (int, error) {
 	var maxSortOrder int
 	if err := r.db.Model(&model.PlanDay{}).
 		Where("plan_id = ?", planID).
-		Select("COALESCE(MAX(sort_order), 0)").
+		Select("COALESCE(MAX(sort_order), -1)").
 		Scan(&maxSortOrder).Error; err != nil {
 		return 0, fmt.Errorf("query next plan day sort order: %w", err)
 	}

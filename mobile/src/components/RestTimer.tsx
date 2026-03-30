@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Svg, { Circle } from "react-native-svg";
 
@@ -8,6 +9,7 @@ import { formatDuration } from "../utils";
 interface RestTimerProps {
   durationSeconds: number;
   onAdjust: (deltaSeconds: number) => void;
+  onComplete?: () => void;
   onSkip: () => void;
   remainingSeconds: number;
   visible: boolean;
@@ -20,10 +22,34 @@ const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
 export const RestTimer = ({
   durationSeconds,
   onAdjust,
+  onComplete,
   onSkip,
   remainingSeconds,
   visible,
 }: RestTimerProps) => {
+  const handleAdjust = (deltaSeconds: number) => {
+    if (deltaSeconds >= 0) {
+      onAdjust(deltaSeconds);
+      return;
+    }
+
+    onAdjust(remainingSeconds <= 0 ? 0 : Math.max(-remainingSeconds, deltaSeconds));
+  };
+
+  useEffect(() => {
+    if (!visible || !onComplete || remainingSeconds <= 0) {
+      return;
+    }
+
+    const timeoutId = setTimeout(() => {
+      onComplete();
+    }, remainingSeconds * 1000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [onComplete, remainingSeconds, visible]);
+
   if (!visible) {
     return null;
   }
@@ -60,7 +86,9 @@ export const RestTimer = ({
           </Svg>
 
           <View style={styles.ringContent}>
-            <Text style={styles.timerValue}>{formatDuration(remainingSeconds)}</Text>
+            <Text style={styles.timerValue} testID="rest-timer-display">
+              {formatDuration(remainingSeconds)}
+            </Text>
             <Text style={styles.timerLabel}>组间休息</Text>
           </View>
         </View>
@@ -68,22 +96,24 @@ export const RestTimer = ({
         <View style={styles.actions}>
           <Pressable
             accessibilityRole="button"
-            onPress={() => onAdjust(-15)}
+            onPress={() => handleAdjust(-15)}
             style={({ pressed }) => [
               styles.adjustButton,
               pressed ? styles.adjustButtonPressed : undefined,
             ]}
+            testID="rest-timer-minus-15"
           >
             <Text style={styles.adjustText}>-15s</Text>
           </Pressable>
 
           <Pressable
             accessibilityRole="button"
-            onPress={() => onAdjust(15)}
+            onPress={() => handleAdjust(15)}
             style={({ pressed }) => [
               styles.adjustButton,
               pressed ? styles.adjustButtonPressed : undefined,
             ]}
+            testID="rest-timer-plus-15"
           >
             <Text style={styles.adjustText}>+15s</Text>
           </Pressable>
@@ -95,6 +125,7 @@ export const RestTimer = ({
               styles.skipButton,
               pressed ? styles.adjustButtonPressed : undefined,
             ]}
+            testID="rest-timer-skip"
           >
             <Text style={styles.skipText}>跳过</Text>
           </Pressable>
